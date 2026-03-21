@@ -1,1 +1,1 @@
-export { HomePage } from "./ui/HomePage";
+export { PlottedApp } from "./ui/PlottedApp";

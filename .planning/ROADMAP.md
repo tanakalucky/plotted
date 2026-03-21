@@ -52,12 +52,12 @@ Plans:
 5. User can drag the time slider to any 10-minute increment between 00:00 and 23:50, and use fine-adjust buttons for ±5m/±10m steps
 6. User can reset all data via a confirmation dialog
 
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 
-- [ ] 02-01: Character management UI (add, select, delete with cascade)
-- [ ] 02-02: Day and time controls (slider, fine-adjust buttons, day increment/decrement with cascade delete)
+- [ ] 02-01-PLAN.md — Reducer extension + time utility: TDD for all 8 action types and timeIndexToLabel utility
+- [ ] 02-02-PLAN.md — Controls UI: character chips/roster/add-form, day tabs, time slider, fine-adjust buttons, collapsible toolbar, reset dialog
 
 ### Phase 3: Maps and Plotting
 

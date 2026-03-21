@@ -63,11 +63,10 @@ describe("reducer", () => {
     expect(result).toEqual(initialState);
   });
 
-  it("returns current state for unknown action", () => {
+  it("exhaustiveパターンマッチングにより未知のアクションはエラーをスローする", () => {
     const state = { ...initialState, days: 5 };
     // @ts-expect-error testing unknown action
-    const result = reducer(state, { type: "UNKNOWN" });
-    expect(result).toBe(state);
+    expect(() => reducer(state, { type: "UNKNOWN" })).toThrow();
   });
 });
 

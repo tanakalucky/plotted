@@ -55,7 +55,12 @@ describe("MINUTES_PER_STEP", () => {
 });
 
 describe("SLIDER_TICKS", () => {
-  it("SLIDER_TICKSは[0, 72, 144, 216, 287]である", () => {
-    expect(SLIDER_TICKS).toEqual([0, 72, 144, 216, 287]);
+  it("SLIDER_TICKSは24個の1時間刻みインデックスである", () => {
+    expect(SLIDER_TICKS).toHaveLength(24);
+    expect(SLIDER_TICKS[0]).toBe(0); // 0h
+    expect(SLIDER_TICKS[1]).toBe(12); // 1h
+    expect(SLIDER_TICKS[6]).toBe(72); // 6h
+    expect(SLIDER_TICKS[12]).toBe(144); // 12h
+    expect(SLIDER_TICKS[23]).toBe(276); // 23h
   });
 });

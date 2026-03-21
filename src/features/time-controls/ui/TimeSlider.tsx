@@ -18,8 +18,8 @@ export const TimeSlider = ({ currentTime, dispatch }: Props) => {
         </span>
         <div className="flex-1">
           <Slider.Root
-            value={[currentTime]}
-            onValueChange={([v]) => dispatch({ type: "SET_TIME", payload: { time: v } })}
+            value={currentTime}
+            onValueChange={(v) => dispatch({ type: "SET_TIME", payload: { time: v } })}
             min={0}
             max={TIME_MAX}
             step={1}
@@ -39,7 +39,7 @@ export const TimeSlider = ({ currentTime, dispatch }: Props) => {
                 className="absolute -translate-x-1/2 text-xs text-ink-muted"
                 style={{ left: `${(tick / TIME_MAX) * 100}%` }}
               >
-                {timeIndexToLabel(tick)}
+                {Math.floor((tick * 5) / 60)}
               </span>
             ))}
           </div>

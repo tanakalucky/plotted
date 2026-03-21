@@ -35,7 +35,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 
-- [ ] 01-01-PLAN.md — Cleanup + noir theme: remove Convex/Clerk/Todo/wouter/next-themes, apply noir CSS variables and shadcn mapping
+- [x] 01-01-PLAN.md — Cleanup + noir theme: remove Convex/Clerk/Todo/wouter/next-themes, apply noir CSS variables and shadcn mapping
 - [ ] 01-02-PLAN.md — State + persistence: useReducer state model with localStorage auto-save/restore and IndexedDB image storage
 
 ### Phase 2: Controls
@@ -87,6 +87,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase           | Plans Complete | Status      | Completed |
 | --------------- | -------------- | ----------- | --------- |
-| 1. Foundation   | 0/2            | Not started | -         |
+| 1. Foundation   | 1/2            | In Progress |           |
 | 2. Controls     | 0/2            | Not started | -         |
 | 3. Maps + Plots | 0/2            | Not started | -         |

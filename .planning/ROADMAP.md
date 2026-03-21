@@ -31,12 +31,12 @@ Decimal phases appear between their surrounding integers in numeric order.
 3. The noir color palette (parchment beige, antique gold, dark brown) is visible as CSS variables throughout the app
 4. Reloading with corrupted or schema-mismatched localStorage does not crash the app
 
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 
-- [ ] 01-01: Remove all existing Todo/Convex/Clerk code and verify clean build
-- [ ] 01-02: Implement useReducer state model with localStorage auto-save/restore and IndexedDB image storage
+- [ ] 01-01-PLAN.md — Cleanup + noir theme: remove Convex/Clerk/Todo/wouter/next-themes, apply noir CSS variables and shadcn mapping
+- [ ] 01-02-PLAN.md — State + persistence: useReducer state model with localStorage auto-save/restore and IndexedDB image storage
 
 ### Phase 2: Controls
 

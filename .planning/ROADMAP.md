@@ -13,7 +13,7 @@ Plotted. delivers a focused alibi-tracking tool for online murder mystery player
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Clean the codebase, establish state model, persistence layer, and noir design theme
+- [x] **Phase 1: Foundation** - Clean the codebase, establish state model, persistence layer, and noir design theme (completed 2026-03-21)
 - [ ] **Phase 2: Controls** - Build all session-context controls: characters, day/time management, and data reset
 - [ ] **Phase 3: Maps and Plotting** - Build map management and the core click-to-plot interaction
 
@@ -36,7 +36,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 
 - [x] 01-01-PLAN.md — Cleanup + noir theme: remove Convex/Clerk/Todo/wouter/next-themes, apply noir CSS variables and shadcn mapping
-- [ ] 01-02-PLAN.md — State + persistence: useReducer state model with localStorage auto-save/restore and IndexedDB image storage
+- [x] 01-02-PLAN.md — State + persistence: useReducer state model with localStorage auto-save/restore and IndexedDB image storage
 
 ### Phase 2: Controls
 
@@ -87,6 +87,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase           | Plans Complete | Status      | Completed |
 | --------------- | -------------- | ----------- | --------- |
-| 1. Foundation   | 1/2            | In Progress |           |
+| 1. Foundation   | 2/2 | Complete   | 2026-03-21 |
 | 2. Controls     | 0/2            | Not started | -         |
 | 3. Maps + Plots | 0/2            | Not started | -         |

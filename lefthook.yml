@@ -1,0 +1,13 @@
+pre-commit:
+  commands:
+    gitleaks:
+      run: gitleaks protect --staged --redact --no-banner --verbose --config=.gitleaks.toml
+
+    lint:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: bun oxlint --type-aware
+
+    format:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: bun oxfmt {staged_files} --no-error-on-unmatched-pattern
+      stage_fixed: true

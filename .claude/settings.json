@@ -1,0 +1,85 @@
+{
+  "language": "japanese",
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(bun:*)",
+      "Bash(bunx:*)",
+      "Bash(ls:*)",
+      "Bash(pwd)",
+      "Bash(which:*)",
+      "Bash(wc:*)",
+      "Bash(env)",
+      "Bash(gh:*)",
+      "mcp__serena",
+      "mcp__context7",
+      "Bash(lsof:*)",
+      "Bash(sleep:*)",
+      "Bash(curl:*)"
+    ],
+    "deny": ["Read(*.env*)"]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run format || true"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun .claude/hooks/gsd-context-monitor.js"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title 'Claude Code' -subtitle '処理完了' -message 'すべてのタスクが終了しました' -sound default -activate dev.zed.Zed"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title 'Claude Code' -subtitle '権限要求' -message '許可を行ってください' -sound default -activate dev.zed.Zed"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun .claude/hooks/gsd-check-update.js"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bun .claude/hooks/gsd-statusline.js"
+  }
+}

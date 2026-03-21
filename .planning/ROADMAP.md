@@ -14,7 +14,7 @@ Plotted. delivers a focused alibi-tracking tool for online murder mystery player
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Clean the codebase, establish state model, persistence layer, and noir design theme (completed 2026-03-21)
-- [ ] **Phase 2: Controls** - Build all session-context controls: characters, day/time management, and data reset
+- [x] **Phase 2: Controls** - Build all session-context controls: characters, day/time management, and data reset (completed 2026-03-21)
 - [ ] **Phase 3: Maps and Plotting** - Build map management and the core click-to-plot interaction
 
 ## Phase Details
@@ -57,7 +57,7 @@ Plans:
 Plans:
 
 - [x] 02-01-PLAN.md — Reducer extension + time utility: TDD for all 8 action types and timeIndexToLabel utility
-- [ ] 02-02-PLAN.md — Controls UI: character chips/roster/add-form, day tabs, time slider, fine-adjust buttons, collapsible toolbar, reset dialog
+- [x] 02-02-PLAN.md — Controls UI: character chips/roster/add-form, day tabs, time slider, fine-adjust buttons, collapsible toolbar, reset dialog
 
 ### Phase 3: Maps and Plotting
 
@@ -88,5 +88,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase           | Plans Complete | Status      | Completed  |
 | --------------- | -------------- | ----------- | ---------- |
 | 1. Foundation   | 2/2            | Complete    | 2026-03-21 |
-| 2. Controls     | 1/2 | In Progress|  |
+| 2. Controls     | 2/2 | Complete   | 2026-03-21 |
 | 3. Maps + Plots | 0/2            | Not started | -          |

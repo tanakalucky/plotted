@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-controls-01-PLAN.md
-last_updated: "2026-03-21T23:38:35.312Z"
+stopped_at: "Checkpoint: Task 3 human-verify for 02-controls-02-PLAN.md"
+last_updated: "2026-03-21T23:43:39.009Z"
 progress:
   total_phases: 3
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # Project State
@@ -49,6 +49,7 @@ _Updated after each plan completion_
 | Phase 01-foundation P01 | 15 | 2 tasks | 8 files |
 | Phase 01-foundation P02 | 6 | 2 tasks | 8 files |
 | Phase 02-controls P01 | 12 | 2 tasks | 6 files |
+| Phase 02-controls P02 | 2 | 2 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -68,6 +69,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: isValidState uses structural key check not Valibot — minimal validation at state layer
 - [Phase 02-controls]: ts-pattern match().exhaustive() for reducer — throws on unknown actions, catches bugs at runtime
 - [Phase 02-controls]: TIME_MAX=287 (5-minute steps) — plan revised from 10-minute (0-143) to 5-minute resolution
+- [Phase 02-controls]: All feature components receive state/dispatch as props — useAppState called once in PlottedApp
+- [Phase 02-controls]: FineAdjustButtons use ADJUST_TIME deltas -2/-1/+1/+2 for 5-min step resolution (-10m/-5m/+5m/+10m)
 
 ### Pending Todos
 
@@ -80,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-21T23:38:35.310Z
-Stopped at: Completed 02-controls-01-PLAN.md
+Last session: 2026-03-21T23:43:39.008Z
+Stopped at: Checkpoint: Task 3 human-verify for 02-controls-02-PLAN.md
 Resume file: None

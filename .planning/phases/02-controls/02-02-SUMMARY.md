@@ -30,22 +30,25 @@ key_files:
     - src/features/time-controls/index.ts
   modified:
     - src/pages/home/ui/PlottedApp.tsx
+    - src/shared/lib/time.ts
+    - src/shared/lib/time.unit.test.ts
 decisions:
   - "All feature components receive state/dispatch as props — useAppState called once in PlottedApp"
-  - "TimeSlider uses @base-ui/react Slider with onValueChange for continuous drag updates"
+  - "TimeSlider uses @base-ui/react Slider with single number value (not array) for continuous drag updates"
   - "FineAdjustButtons use ADJUST_TIME deltas: -2/-1/+1/+2 (5-min steps = -10m/-5m/+5m/+10m)"
+  - "SLIDER_TICKS changed to 24 hourly indices with plain hour numbers (0-23) as labels"
 metrics:
-  duration_minutes: 2
+  duration_minutes: 5
   completed_date: "2026-03-22"
-  tasks_completed: 2
+  tasks_completed: 3
   tasks_total: 3
   files_created: 10
-  files_modified: 1
+  files_modified: 3
 ---
 
 # Phase 02 Plan 02: UI Controls Build Summary
 
-**One-liner:** Complete controls toolbar with character chip management, collapsible day/time controls (288-step 5-minute slider), and reset dialog wired to single useAppState instance.
+**One-liner:** Complete controls toolbar with character chip management, collapsible day/time controls (288-step 5-minute slider with hourly tick marks), and reset dialog wired to single useAppState instance.
 
 ## Tasks Completed
 
@@ -53,6 +56,7 @@ metrics:
 | ---- | --------------------------------------- | ------- | --------------------- |
 | 1    | Character management feature slice      | a693d52 | 5 created             |
 | 2    | Day/time controls + PlottedApp assembly | 2045654 | 5 created, 1 modified |
+| 3    | Visual and functional verification      | 5f6a707 | 3 modified (fix)      |
 
 ## What Was Built
 
@@ -65,8 +69,8 @@ metrics:
 
 ### Time Controls (`src/features/time-controls/`)
 
-- **`DaySelector.tsx`**: Tab-style Day buttons (Day1–Day7) with +/- increment buttons, disabled at bounds (MIN_DAYS=1, MAX_DAYS=7)
-- **`TimeSlider.tsx`**: `@base-ui/react/slider` Slider with continuous `onValueChange`, 288 steps (0–287), tick marks at 00:00/06:00/12:00/18:00/23:55, serif time label
+- **`DaySelector.tsx`**: Tab-style Day buttons (Day1-Day7) with +/- increment buttons, disabled at bounds (MIN_DAYS=1, MAX_DAYS=7)
+- **`TimeSlider.tsx`**: `@base-ui/react/slider` Slider with continuous `onValueChange`, 288 steps (0-287), 24 hourly tick labels (0-23), serif time label
 - **`FineAdjustButtons.tsx`**: Four buttons dispatching ADJUST_TIME with distinct deltas: -2 (-10m), -1 (-5m), +1 (+5m), +2 (+10m)
 
 ### PlottedApp (`src/pages/home/ui/PlottedApp.tsx`)
@@ -81,31 +85,44 @@ metrics:
 - `bun run typecheck`: passed
 - `bun run test`: 47 tests passed (3 test files)
 - `bun run lint`: passed (no errors)
-- Dev server: running at http://localhost:5173
+- Visual verification: completed (user-reported issues fixed)
 
 ## Deviations from Plan
 
-None — plan executed exactly as written.
+### Auto-fixed Issues
+
+**1. [Rule 1 - Bug] Fixed slider drag not updating time**
+
+- **Found during:** Task 3 (human verification)
+- **Issue:** `@base-ui/react` Slider.Root `value` was passed as `number[]` (array) but single-thumb slider expects `number` (single value). The `onValueChange` callback type did not match.
+- **Fix:** Changed `value={[currentTime]}` to `value={currentTime}` and updated callback from `([v]) =>` to `(v) =>`.
+- **Files modified:** `src/features/time-controls/ui/TimeSlider.tsx`
+- **Commit:** 5f6a707
+
+**2. [Rule 1 - Bug] Changed tick marks to hourly display (0-23)**
+
+- **Found during:** Task 3 (human verification)
+- **Issue:** SLIDER_TICKS had only 5 sparse ticks showing HH:MM format. User requested hourly labels (0, 1, 2, ... 23) for better readability.
+- **Fix:** Changed `SLIDER_TICKS` from `[0, 72, 144, 216, 287]` to `Array.from({ length: 24 }, (_, i) => i * 12)`. Updated tick label rendering to show plain hour numbers. Updated corresponding unit test.
+- **Files modified:** `src/shared/lib/time.ts`, `src/shared/lib/time.unit.test.ts`, `src/features/time-controls/ui/TimeSlider.tsx`
+- **Commit:** 5f6a707
 
 ## Known Stubs
 
-None — all controls are fully wired to the useAppState reducer.
+None -- all controls are fully wired to the useAppState reducer.
 
-## Checkpoint Status
+## Self-Check: PASSED
 
-Task 3 (Visual and functional verification) is a `checkpoint:human-verify` gate.
-
-**Awaiting:** Human opens http://localhost:5173 and verifies all controls function correctly.
-
-## Self-Check
-
-- [x] src/features/character-manager/lib/preset-colors.ts — created (a693d52)
-- [x] src/features/character-manager/ui/CharChip.tsx — created (a693d52)
-- [x] src/features/character-manager/ui/CharRoster.tsx — created (a693d52)
-- [x] src/features/character-manager/ui/AddCharForm.tsx — created (a693d52)
-- [x] src/features/character-manager/index.ts — created (a693d52)
-- [x] src/features/time-controls/ui/DaySelector.tsx — created (2045654)
-- [x] src/features/time-controls/ui/TimeSlider.tsx — created (2045654)
-- [x] src/features/time-controls/ui/FineAdjustButtons.tsx — created (2045654)
-- [x] src/features/time-controls/index.ts — created (2045654)
-- [x] src/pages/home/ui/PlottedApp.tsx — modified (2045654)
+- [x] src/features/character-manager/lib/preset-colors.ts -- created (a693d52)
+- [x] src/features/character-manager/ui/CharChip.tsx -- created (a693d52)
+- [x] src/features/character-manager/ui/CharRoster.tsx -- created (a693d52)
+- [x] src/features/character-manager/ui/AddCharForm.tsx -- created (a693d52)
+- [x] src/features/character-manager/index.ts -- created (a693d52)
+- [x] src/features/time-controls/ui/DaySelector.tsx -- created (2045654)
+- [x] src/features/time-controls/ui/TimeSlider.tsx -- created (2045654), fixed (5f6a707)
+- [x] src/features/time-controls/ui/FineAdjustButtons.tsx -- created (2045654)
+- [x] src/features/time-controls/index.ts -- created (2045654)
+- [x] src/pages/home/ui/PlottedApp.tsx -- modified (2045654)
+- [x] src/shared/lib/time.ts -- modified (5f6a707)
+- [x] src/shared/lib/time.unit.test.ts -- modified (5f6a707)
+- [x] All commits verified in git log

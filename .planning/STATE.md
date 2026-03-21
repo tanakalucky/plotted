@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: "Checkpoint: Task 3 human-verify for 02-controls-02-PLAN.md"
-last_updated: "2026-03-21T23:43:39.009Z"
+stopped_at: Completed 02-controls-02-PLAN.md
+last_updated: "2026-03-21T23:50:10.716Z"
 progress:
   total_phases: 3
   completed_phases: 2
@@ -71,6 +71,8 @@ Recent decisions affecting current work:
 - [Phase 02-controls]: TIME_MAX=287 (5-minute steps) — plan revised from 10-minute (0-143) to 5-minute resolution
 - [Phase 02-controls]: All feature components receive state/dispatch as props — useAppState called once in PlottedApp
 - [Phase 02-controls]: FineAdjustButtons use ADJUST_TIME deltas -2/-1/+1/+2 for 5-min step resolution (-10m/-5m/+5m/+10m)
+- [Phase 02-controls]: SLIDER_TICKS changed to 24 hourly indices with plain hour numbers (0-23) as labels
+- [Phase 02-controls]: @base-ui/react Slider requires single number value (not array) for single-thumb slider
 
 ### Pending Todos
 
@@ -83,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-21T23:43:39.008Z
-Stopped at: Checkpoint: Task 3 human-verify for 02-controls-02-PLAN.md
+Last session: 2026-03-21T23:50:03.276Z
+Stopped at: Completed 02-controls-02-PLAN.md
 Resume file: None

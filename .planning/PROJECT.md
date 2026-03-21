@@ -15,6 +15,9 @@
 - ✓ React + Tailwind CSS v4 + shadcn/ui のプロジェクト基盤 — existing
 - ✓ Feature-Sliced Design アーキテクチャ — existing
 - ✓ ErrorBoundary — existing
+- ✓ クラシック・ノワール デザインテーマの適用 — Validated in Phase 01: Foundation
+- ✓ 既存Todoアプリ/Convexコードの削除 — Validated in Phase 01: Foundation
+- ✓ データ永続化（localStorage自動保存・自動復元・リセット） — Validated in Phase 01: Foundation
 
 ### Active
 
@@ -23,9 +26,9 @@
 - [ ] 時刻管理（10分単位スライダー 00:00〜23:50、微調整ボタン）
 - [ ] マップ管理（最大3枚、2カラム並列表示、画像読み込み、削除時の関連プロット削除）
 - [ ] プロット機能（マップクリックで位置記録、ドット表示、クリック削除）
-- [ ] データ永続化（localStorage自動保存・自動復元・リセット）
-- [ ] クラシック・ノワール デザインテーマの適用
-- [ ] 既存Todoアプリ/Convexコードの削除
+- [x] クラシック・ノワール デザインテーマの適用 → Validated
+- [x] 既存Todoアプリ/Convexコードの削除 → Validated
+- [x] データ永続化（localStorage自動保存・自動復元・リセット） → Validated
 
 ### Out of Scope
 
@@ -56,12 +59,12 @@
 
 ## Key Decisions
 
-| Decision                     | Rationale                                        | Outcome   |
-| ---------------------------- | ------------------------------------------------ | --------- |
-| localStorage for persistence | バックエンド不要、即座に動作、デプロイがシンプル | — Pending |
-| 座標を比率で記録             | マップサイズ変更に耐える設計                     | — Pending |
-| 既存Todo/Convexコードを削除  | 完全に異なるアプリのため再利用不可               | — Pending |
-| マップ最大3枚・2カラム表示   | 同時比較のため並列表示、画面サイズの制約         | — Pending |
+| Decision                     | Rationale                                        | Outcome    |
+| ---------------------------- | ------------------------------------------------ | ---------- |
+| localStorage for persistence | バックエンド不要、即座に動作、デプロイがシンプル | ✓ Phase 01 |
+| 座標を比率で記録             | マップサイズ変更に耐える設計                     | — Pending  |
+| 既存Todo/Convexコードを削除  | 完全に異なるアプリのため再利用不可               | ✓ Phase 01 |
+| マップ最大3枚・2カラム表示   | 同時比較のため並列表示、画面サイズの制約         | — Pending  |
 
 ## Design
 
@@ -135,4 +138,4 @@ This document evolves at phase transitions and milestone boundaries.
 
 ---
 
-_Last updated: 2026-03-22 after initialization_
+_Last updated: 2026-03-22 after Phase 01: Foundation completion_

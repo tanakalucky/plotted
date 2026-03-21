@@ -3,7 +3,7 @@ export interface PlotLog {
   char: string;
   map: string;
   day: number;
-  time: number; // 0-143 (10-minute index)
+  time: number; // 0-287 (5-minute index)
   x: number; // 0.0-1.0
   y: number; // 0.0-1.0
 }
@@ -26,7 +26,7 @@ export interface State {
   days: number; // 1-7
   activeChar: string | null;
   activeDay: number;
-  currentTime: number; // 0-143
+  currentTime: number; // 0-287
 }
 
 export const initialState: State = {

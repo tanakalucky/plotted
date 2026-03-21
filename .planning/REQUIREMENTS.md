@@ -66,34 +66,34 @@
 
 ## Traceability
 
-| Requirement | Phase | Status  |
-| ----------- | ----- | ------- |
-| SETUP-01    | —     | Pending |
-| SETUP-02    | —     | Pending |
-| SETUP-03    | —     | Pending |
-| SETUP-04    | —     | Pending |
-| CHAR-01     | —     | Pending |
-| CHAR-02     | —     | Pending |
-| CHAR-03     | —     | Pending |
-| TIME-01     | —     | Pending |
-| TIME-02     | —     | Pending |
-| TIME-03     | —     | Pending |
-| TIME-04     | —     | Pending |
-| MAP-01      | —     | Pending |
-| MAP-02      | —     | Pending |
-| MAP-03      | —     | Pending |
-| PLOT-01     | —     | Pending |
-| PLOT-02     | —     | Pending |
-| PLOT-03     | —     | Pending |
-| DATA-01     | —     | Pending |
+| Requirement | Phase   | Status  |
+| ----------- | ------- | ------- |
+| SETUP-01    | Phase 1 | Pending |
+| SETUP-02    | Phase 1 | Pending |
+| SETUP-03    | Phase 1 | Pending |
+| SETUP-04    | Phase 1 | Pending |
+| CHAR-01     | Phase 2 | Pending |
+| CHAR-02     | Phase 2 | Pending |
+| CHAR-03     | Phase 2 | Pending |
+| TIME-01     | Phase 2 | Pending |
+| TIME-02     | Phase 2 | Pending |
+| TIME-03     | Phase 2 | Pending |
+| TIME-04     | Phase 2 | Pending |
+| DATA-01     | Phase 2 | Pending |
+| MAP-01      | Phase 3 | Pending |
+| MAP-02      | Phase 3 | Pending |
+| MAP-03      | Phase 3 | Pending |
+| PLOT-01     | Phase 3 | Pending |
+| PLOT-02     | Phase 3 | Pending |
+| PLOT-03     | Phase 3 | Pending |
 
 **Coverage:**
 
 - v1 requirements: 18 total
-- Mapped to phases: 0
-- Unmapped: 18 ⚠️
+- Mapped to phases: 18
+- Unmapped: 0
 
 ---
 
 _Requirements defined: 2026-03-22_
-_Last updated: 2026-03-22 after initial definition_
+_Last updated: 2026-03-22 after roadmap creation_

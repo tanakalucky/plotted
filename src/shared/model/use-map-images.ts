@@ -1,7 +1,27 @@
-// Placeholder — implemented in Task 2 after idb-keyval is installed
+import { del, get, set } from "idb-keyval";
 
-export const saveMapImage = async (_mapId: string, _blob: Blob): Promise<void> => {};
+const PREFIX = "map-img-";
 
-export const loadMapImage = async (_mapId: string): Promise<Blob | null> => null;
+export const saveMapImage = async (mapId: string, blob: Blob): Promise<void> => {
+  try {
+    await set(`${PREFIX}${mapId}`, blob);
+  } catch {
+    // D-06: IndexedDB unavailable — silently fail, image stays null
+  }
+};
 
-export const deleteMapImage = async (_mapId: string): Promise<void> => {};
+export const loadMapImage = async (mapId: string): Promise<Blob | null> => {
+  try {
+    return (await get<Blob>(`${PREFIX}${mapId}`)) ?? null;
+  } catch {
+    return null; // D-06: fail gracefully
+  }
+};
+
+export const deleteMapImage = async (mapId: string): Promise<void> => {
+  try {
+    await del(`${PREFIX}${mapId}`);
+  } catch {
+    // D-06: ignore
+  }
+};

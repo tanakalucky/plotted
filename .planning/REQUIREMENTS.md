@@ -7,23 +7,23 @@
 
 ### Setup
 
-- [ ] **SETUP-01**: 既存のTodoアプリ・Convex・Clerk関連コードを全て削除し、ビルドが通る状態にする
-- [ ] **SETUP-02**: アプリ全体の状態をuseReducerで管理し、全操作後にlocalStorageへ自動保存・リロード時に自動復元する
-- [ ] **SETUP-03**: マップ画像をIndexedDB（idb-keyval）に保存し、localStorage容量制限を回避する
-- [ ] **SETUP-04**: クラシック・ノワールのカラーテーマ・タイポグラフィ・UIルールをTailwind CSS変数として定義する
+- [x] **SETUP-01**: 既存のTodoアプリ・Convex・Clerk関連コードを全て削除し、ビルドが通る状態にする
+- [x] **SETUP-02**: アプリ全体の状態をuseReducerで管理し、全操作後にlocalStorageへ自動保存・リロード時に自動復元する
+- [x] **SETUP-03**: マップ画像をIndexedDB（idb-keyval）に保存し、localStorage容量制限を回避する
+- [x] **SETUP-04**: クラシック・ノワールのカラーテーマ・タイポグラフィ・UIルールをTailwind CSS変数として定義する
 
 ### Character
 
-- [ ] **CHAR-01**: 名前（最大10文字）とカラーを指定してキャラクターを追加できる
-- [ ] **CHAR-02**: キャラクターチップをクリックしてアクティブキャラクターを切り替えられる
-- [ ] **CHAR-03**: キャラクターを削除すると、関連するプロットデータもカスケード削除される
+- [x] **CHAR-01**: 名前（最大10文字）とカラーを指定してキャラクターを追加できる
+- [x] **CHAR-02**: キャラクターチップをクリックしてアクティブキャラクターを切り替えられる
+- [x] **CHAR-03**: キャラクターを削除すると、関連するプロットデータもカスケード削除される
 
 ### Time
 
-- [ ] **TIME-01**: Day1〜Day7を選択でき、+/-ボタンでDay数を増減できる
-- [ ] **TIME-02**: Dayを減らした場合、該当Day以降のログが自動削除される
-- [ ] **TIME-03**: スライダーで10分単位（00:00〜23:50）の時刻を操作できる
-- [ ] **TIME-04**: -10m / -5m / +5m / +10m ボタンで時刻を微調整できる
+- [x] **TIME-01**: Day1〜Day7を選択でき、+/-ボタンでDay数を増減できる
+- [x] **TIME-02**: Dayを減らした場合、該当Day以降のログが自動削除される
+- [x] **TIME-03**: スライダーで10分単位（00:00〜23:50）の時刻を操作できる
+- [x] **TIME-04**: -10m / -5m / +5m / +10m ボタンで時刻を微調整できる
 
 ### Map
 
@@ -39,7 +39,7 @@
 
 ### Data
 
-- [ ] **DATA-01**: リセットボタンで全データを初期化できる（確認ダイアログあり）
+- [x] **DATA-01**: リセットボタンで全データを初期化できる（確認ダイアログあり）
 
 ## v2 Requirements
 
@@ -66,26 +66,26 @@
 
 ## Traceability
 
-| Requirement | Phase   | Status  |
-| ----------- | ------- | ------- |
-| SETUP-01    | Phase 1 | Pending |
-| SETUP-02    | Phase 1 | Pending |
-| SETUP-03    | Phase 1 | Pending |
-| SETUP-04    | Phase 1 | Pending |
-| CHAR-01     | Phase 2 | Pending |
-| CHAR-02     | Phase 2 | Pending |
-| CHAR-03     | Phase 2 | Pending |
-| TIME-01     | Phase 2 | Pending |
-| TIME-02     | Phase 2 | Pending |
-| TIME-03     | Phase 2 | Pending |
-| TIME-04     | Phase 2 | Pending |
-| DATA-01     | Phase 2 | Pending |
-| MAP-01      | Phase 3 | Pending |
-| MAP-02      | Phase 3 | Pending |
-| MAP-03      | Phase 3 | Pending |
-| PLOT-01     | Phase 3 | Pending |
-| PLOT-02     | Phase 3 | Pending |
-| PLOT-03     | Phase 3 | Pending |
+| Requirement | Phase   | Status   |
+| ----------- | ------- | -------- |
+| SETUP-01    | Phase 1 | Complete |
+| SETUP-02    | Phase 1 | Complete |
+| SETUP-03    | Phase 1 | Complete |
+| SETUP-04    | Phase 1 | Complete |
+| CHAR-01     | Phase 2 | Complete |
+| CHAR-02     | Phase 2 | Complete |
+| CHAR-03     | Phase 2 | Complete |
+| TIME-01     | Phase 2 | Complete |
+| TIME-02     | Phase 2 | Complete |
+| TIME-03     | Phase 2 | Complete |
+| TIME-04     | Phase 2 | Complete |
+| DATA-01     | Phase 2 | Complete |
+| MAP-01      | Phase 3 | Pending  |
+| MAP-02      | Phase 3 | Pending  |
+| MAP-03      | Phase 3 | Pending  |
+| PLOT-01     | Phase 3 | Pending  |
+| PLOT-02     | Phase 3 | Pending  |
+| PLOT-03     | Phase 3 | Pending  |
 
 **Coverage:**
 

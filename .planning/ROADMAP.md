@@ -56,7 +56,7 @@ Plans:
 
 Plans:
 
-- [ ] 02-01-PLAN.md — Reducer extension + time utility: TDD for all 8 action types and timeIndexToLabel utility
+- [x] 02-01-PLAN.md — Reducer extension + time utility: TDD for all 8 action types and timeIndexToLabel utility
 - [ ] 02-02-PLAN.md — Controls UI: character chips/roster/add-form, day tabs, time slider, fine-adjust buttons, collapsible toolbar, reset dialog
 
 ### Phase 3: Maps and Plotting
@@ -88,5 +88,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase           | Plans Complete | Status      | Completed  |
 | --------------- | -------------- | ----------- | ---------- |
 | 1. Foundation   | 2/2            | Complete    | 2026-03-21 |
-| 2. Controls     | 0/2            | Not started | -          |
+| 2. Controls     | 1/2 | In Progress|  |
 | 3. Maps + Plots | 0/2            | Not started | -          |

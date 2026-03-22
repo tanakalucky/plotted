@@ -29,6 +29,7 @@
 - [x] クラシック・ノワール デザインテーマの適用 → Validated
 - [x] 既存Todoアプリ/Convexコードの削除 → Validated
 - [x] データ永続化（localStorage自動保存・自動復元・リセット） → Validated
+- [x] リセット時のIndexedDB画像クリーンアップ → Validated in Phase 04: IndexedDB Cleanup
 
 ### Out of Scope
 
@@ -65,6 +66,7 @@
 | 座標を比率で記録             | マップサイズ変更に耐える設計                     | ✓ Phase 03 |
 | 既存Todo/Convexコードを削除  | 完全に異なるアプリのため再利用不可               | ✓ Phase 01 |
 | マップ最大4枚・2カラム表示   | 同時比較のため並列表示、画面サイズの制約         | ✓ Phase 03 |
+| リセット時にIndexedDB清掃    | orphaned blobの防止、ストレージ衛生              | ✓ Phase 04 |
 
 ## Design
 
@@ -138,4 +140,4 @@ This document evolves at phase transitions and milestone boundaries.
 
 ---
 
-_Last updated: 2026-03-22 after Phase 03: Maps & Plotting completion_
+_Last updated: 2026-03-22 after Phase 04: IndexedDB Cleanup completion_

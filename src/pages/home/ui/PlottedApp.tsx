@@ -6,7 +6,7 @@ import { useState } from "react";
 import { AddCharForm, CharRoster } from "@/features/character-manager";
 import { MapGrid } from "@/features/map-manager";
 import { DaySelector, FineAdjustButtons, TimeSlider } from "@/features/time-controls";
-import { useAppState } from "@/shared/model";
+import { deleteMapImage, useAppState } from "@/shared/model";
 import { Button } from "@/shared/ui/Button";
 
 export const PlottedApp = () => {
@@ -89,7 +89,10 @@ export const PlottedApp = () => {
                         <Button
                           variant="destructive"
                           size="sm"
-                          onClick={() => dispatch({ type: "RESET" })}
+                          onClick={async () => {
+                            await Promise.all(state.maps.map((m) => deleteMapImage(m.id)));
+                            dispatch({ type: "RESET" });
+                          }}
                         >
                           リセット
                         </Button>

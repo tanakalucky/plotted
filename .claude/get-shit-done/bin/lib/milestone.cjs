@@ -4,9 +4,17 @@
 
 const fs = require("fs");
 const path = require("path");
-const { escapeRegex, getMilestonePhaseFilter, output, error } = require("./core.cjs");
+const {
+  escapeRegex,
+  getMilestonePhaseFilter,
+  extractOneLinerFromBody,
+  normalizeMd,
+  planningPaths,
+  output,
+  error,
+} = require("./core.cjs");
 const { extractFrontmatter } = require("./frontmatter.cjs");
-const { writeStateMd } = require("./state.cjs");
+const { writeStateMd, stateReplaceFieldWithFallback } = require("./state.cjs");
 
 function cmdRequirementsMarkComplete(cwd, reqIdsRaw, raw) {
   if (!reqIdsRaw || reqIdsRaw.length === 0) {
@@ -27,7 +35,7 @@ function cmdRequirementsMarkComplete(cwd, reqIdsRaw, raw) {
     error("no valid requirement IDs found");
   }
 
-  const reqPath = path.join(cwd, ".planning", "REQUIREMENTS.md");
+  const reqPath = planningPaths(cwd).requirements;
   if (!fs.existsSync(reqPath)) {
     output(
       { updated: false, reason: "REQUIREMENTS.md not found", ids: reqIds },
@@ -39,6 +47,7 @@ function cmdRequirementsMarkComplete(cwd, reqIdsRaw, raw) {
 
   let reqContent = fs.readFileSync(reqPath, "utf-8");
   const updated = [];
+  const alreadyComplete = [];
   const notFound = [];
 
   for (const reqId of reqIds) {
@@ -69,7 +78,14 @@ function cmdRequirementsMarkComplete(cwd, reqIdsRaw, raw) {
     if (found) {
       updated.push(reqId);
     } else {
-      notFound.push(reqId);
+      // Check if already complete before declaring not_found
+      const doneCheckbox = new RegExp(`-\\s*\\[x\\]\\s*\\*\\*${reqEscaped}\\*\\*`, "gi");
+      const doneTable = new RegExp(`\\|\\s*${reqEscaped}\\s*\\|[^|]+\\|\\s*Complete\\s*\\|`, "gi");
+      if (doneCheckbox.test(reqContent) || doneTable.test(reqContent)) {
+        alreadyComplete.push(reqId);
+      } else {
+        notFound.push(reqId);
+      }
     }
   }
 
@@ -81,6 +97,7 @@ function cmdRequirementsMarkComplete(cwd, reqIdsRaw, raw) {
     {
       updated: updated.length > 0,
       marked_complete: updated,
+      already_complete: alreadyComplete,
       not_found: notFound,
       total: reqIds.length,
     },
@@ -94,12 +111,12 @@ function cmdMilestoneComplete(cwd, version, options, raw) {
     error("version required for milestone complete (e.g., v1.0)");
   }
 
-  const roadmapPath = path.join(cwd, ".planning", "ROADMAP.md");
-  const reqPath = path.join(cwd, ".planning", "REQUIREMENTS.md");
-  const statePath = path.join(cwd, ".planning", "STATE.md");
+  const roadmapPath = planningPaths(cwd).roadmap;
+  const reqPath = planningPaths(cwd).requirements;
+  const statePath = planningPaths(cwd).state;
   const milestonesPath = path.join(cwd, ".planning", "MILESTONES.md");
   const archiveDir = path.join(cwd, ".planning", "milestones");
-  const phasesDir = path.join(cwd, ".planning", "phases");
+  const phasesDir = planningPaths(cwd).phases;
   const today = new Date().toISOString().split("T")[0];
   const milestoneName = options.name || version;
 
@@ -138,16 +155,28 @@ function cmdMilestoneComplete(cwd, version, options, raw) {
         try {
           const content = fs.readFileSync(path.join(phasesDir, dir, s), "utf-8");
           const fm = extractFrontmatter(content);
-          if (fm["one-liner"]) {
-            accomplishments.push(fm["one-liner"]);
+          const oneLiner = fm["one-liner"] || extractOneLinerFromBody(content);
+          if (oneLiner) {
+            accomplishments.push(oneLiner);
           }
-          // Count tasks
-          const taskMatches = content.match(/##\s*Task\s*\d+/gi) || [];
-          totalTasks += taskMatches.length;
-        } catch {}
+          // Count tasks: prefer **Tasks:** N from Performance section,
+          // then <task XML tags, then ## Task N markdown headers
+          const tasksFieldMatch = content.match(/\*\*Tasks:\*\*\s*(\d+)/);
+          if (tasksFieldMatch) {
+            totalTasks += parseInt(tasksFieldMatch[1], 10);
+          } else {
+            const xmlTaskMatches = content.match(/<task[\s>]/gi) || [];
+            const mdTaskMatches = content.match(/##\s*Task\s*\d+/gi) || [];
+            totalTasks += xmlTaskMatches.length || mdTaskMatches.length;
+          }
+        } catch {
+          /* intentionally empty */
+        }
       }
     }
-  } catch {}
+  } catch {
+    /* intentionally empty */
+  }
 
   // Archive ROADMAP.md
   if (fs.existsSync(roadmapPath)) {
@@ -180,35 +209,46 @@ function cmdMilestoneComplete(cwd, version, options, raw) {
     const existing = fs.readFileSync(milestonesPath, "utf-8");
     if (!existing.trim()) {
       // Empty file — treat like new
-      fs.writeFileSync(milestonesPath, `# Milestones\n\n${milestoneEntry}`, "utf-8");
+      fs.writeFileSync(milestonesPath, normalizeMd(`# Milestones\n\n${milestoneEntry}`), "utf-8");
     } else {
       // Insert after the header line(s) for reverse chronological order (newest first)
       const headerMatch = existing.match(/^(#{1,3}\s+[^\n]*\n\n?)/);
       if (headerMatch) {
         const header = headerMatch[1];
         const rest = existing.slice(header.length);
-        fs.writeFileSync(milestonesPath, header + milestoneEntry + rest, "utf-8");
+        fs.writeFileSync(milestonesPath, normalizeMd(header + milestoneEntry + rest), "utf-8");
       } else {
         // No recognizable header — prepend the entry
-        fs.writeFileSync(milestonesPath, milestoneEntry + existing, "utf-8");
+        fs.writeFileSync(milestonesPath, normalizeMd(milestoneEntry + existing), "utf-8");
       }
     }
   } else {
-    fs.writeFileSync(milestonesPath, `# Milestones\n\n${milestoneEntry}`, "utf-8");
+    fs.writeFileSync(milestonesPath, normalizeMd(`# Milestones\n\n${milestoneEntry}`), "utf-8");
   }
 
-  // Update STATE.md
+  // Update STATE.md — use shared helpers that handle both **bold:** and plain Field: formats
   if (fs.existsSync(statePath)) {
     let stateContent = fs.readFileSync(statePath, "utf-8");
-    stateContent = stateContent.replace(
-      /(\*\*Status:\*\*\s*).*/,
-      `$1${version} milestone complete`,
+
+    stateContent = stateReplaceFieldWithFallback(
+      stateContent,
+      "Status",
+      null,
+      `${version} milestone complete`,
     );
-    stateContent = stateContent.replace(/(\*\*Last Activity:\*\*\s*).*/, `$1${today}`);
-    stateContent = stateContent.replace(
-      /(\*\*Last Activity Description:\*\*\s*).*/,
-      `$1${version} milestone completed and archived`,
+    stateContent = stateReplaceFieldWithFallback(
+      stateContent,
+      "Last Activity",
+      "Last activity",
+      today,
     );
+    stateContent = stateReplaceFieldWithFallback(
+      stateContent,
+      "Last Activity Description",
+      null,
+      `${version} milestone completed and archived`,
+    );
+
     writeStateMd(statePath, stateContent, cwd);
   }
 
@@ -228,7 +268,9 @@ function cmdMilestoneComplete(cwd, version, options, raw) {
         archivedCount++;
       }
       phasesArchived = archivedCount > 0;
-    } catch {}
+    } catch {
+      /* intentionally empty */
+    }
   }
 
   const result = {

@@ -1,9 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/noto-sans";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -13,6 +10,8 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  /* shadcn bridge — maps CSS vars to Tailwind utility classes */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -31,98 +30,68 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: "Noto Sans Variable", sans-serif;
+
+  /* Semantic noir tokens (D-10) — usable as bg-bg, text-ink-dark, etc. */
+  --color-bg: var(--background);
+  --color-surface: var(--secondary);
+  --color-card-noir: var(--card);
+  --color-border-gold: var(--border);
+  --color-border-light: var(--input);
+  --color-ink-dark: var(--foreground);
+  --color-ink-mid: oklch(0.42 0.045 68);
+  --color-ink-muted: var(--muted-foreground);
+  --color-accent-dark: var(--primary);
+  --color-accent-pale: var(--accent);
+
+  /* Border radius tokens per UIルール */
+  --radius-card: 10px;
+  --radius-button: 6px;
+  --radius-chip: 999px;
+
+  /* Font — system sans-serif (D-02) */
+  --font-sans: system-ui, -apple-system, sans-serif;
 }
 
 :root {
   --radius: 0.625rem;
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.13 0.028 261.692);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.13 0.028 261.692);
-  --primary: oklch(0.67 0.16 58);
-  --primary-foreground: oklch(0.99 0.02 95);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.003 264.542);
-  --muted-foreground: oklch(0.551 0.027 264.364);
-  --accent: oklch(0.967 0.003 264.542);
-  --accent-foreground: oklch(0.21 0.034 264.665);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.928 0.006 264.531);
-  --input: oklch(0.928 0.006 264.531);
-  --ring: oklch(0.707 0.022 261.325);
-  --chart-1: oklch(0.88 0.15 92);
-  --chart-2: oklch(0.77 0.16 70);
-  --chart-3: oklch(0.67 0.16 58);
-  --chart-4: oklch(0.56 0.15 49);
-  --chart-5: oklch(0.47 0.12 46);
-  --sidebar: oklch(0.985 0.002 247.839);
-  --sidebar-foreground: oklch(0.13 0.028 261.692);
-  --sidebar-primary: oklch(0.67 0.16 58);
-  --sidebar-primary-foreground: oklch(0.99 0.02 95);
-  --sidebar-accent: oklch(0.967 0.003 264.542);
-  --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
-  --sidebar-border: oklch(0.928 0.006 264.531);
-  --sidebar-ring: oklch(0.707 0.022 261.325);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.13 0.028 261.692);
+
+  /* Noir palette mapped to shadcn CSS variable contract */
+  --background: oklch(0.96 0.018 78); /* #F5F0E8 羊皮紙ベージュ */
+  --foreground: oklch(0.18 0.03 68); /* #2C2416 ダークブラウン */
+  --card: oklch(0.98 0.012 78); /* #FAF6EE オフホワイト */
+  --card-foreground: oklch(0.18 0.03 68); /* #2C2416 */
+  --popover: oklch(0.98 0.012 78); /* #FAF6EE */
+  --popover-foreground: oklch(0.18 0.03 68); /* #2C2416 */
+  --primary: oklch(0.38 0.075 56); /* #7A4F2A ダークアンバー */
+  --primary-foreground: oklch(0.92 0.035 82); /* #F0E4CC ペールアンバー */
+  --secondary: oklch(0.93 0.02 78); /* #EDE7D9 くすんだクリーム */
+  --secondary-foreground: oklch(0.18 0.03 68); /* #2C2416 */
+  --muted: oklch(0.93 0.02 78); /* #EDE7D9 */
+  --muted-foreground: oklch(0.6 0.04 70); /* #9C8B6E ミュートブラウン */
+  --accent: oklch(0.92 0.035 82); /* #F0E4CC ペールアンバー */
+  --accent-foreground: oklch(0.38 0.075 56); /* #7A4F2A ダークアンバー */
+  --destructive: oklch(0.577 0.245 27.325); /* existing red */
+  --border: oklch(0.77 0.04 78); /* #C8B99A アンティークゴールド */
+  --input: oklch(0.85 0.025 78); /* #DDD3BE ライトベージュ */
+  --ring: oklch(0.38 0.075 56); /* #7A4F2A */
 }
 
-.dark {
-  --background: oklch(0.13 0.028 261.692);
-  --foreground: oklch(0.985 0.002 247.839);
-  --card: oklch(0.21 0.034 264.665);
-  --card-foreground: oklch(0.985 0.002 247.839);
-  --popover: oklch(0.21 0.034 264.665);
-  --popover-foreground: oklch(0.985 0.002 247.839);
-  --primary: oklch(0.77 0.16 70);
-  --primary-foreground: oklch(0.28 0.07 46);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.278 0.033 256.848);
-  --muted-foreground: oklch(0.707 0.022 261.325);
-  --accent: oklch(0.278 0.033 256.848);
-  --accent-foreground: oklch(0.985 0.002 247.839);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.88 0.15 92);
-  --chart-2: oklch(0.77 0.16 70);
-  --chart-3: oklch(0.67 0.16 58);
-  --chart-4: oklch(0.56 0.15 49);
-  --chart-5: oklch(0.47 0.12 46);
-  --sidebar: oklch(0.21 0.034 264.665);
-  --sidebar-foreground: oklch(0.985 0.002 247.839);
-  --sidebar-primary: oklch(0.77 0.16 70);
-  --sidebar-primary-foreground: oklch(0.28 0.07 46);
-  --sidebar-accent: oklch(0.278 0.033 256.848);
-  --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+@keyframes plotted-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
     @apply h-full bg-background font-sans text-foreground;
   }
   html {

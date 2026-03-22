@@ -20,7 +20,7 @@ Routes to the pause-work workflow which handles:
   </objective>
 
 <execution_context>
-@./.claude/get-shit-done/workflows/pause-work.md
+@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/pause-work.md
 </execution_context>
 
 <context>
@@ -28,7 +28,7 @@ State and phase progress are gathered in-workflow with targeted reads.
 </context>
 
 <process>
-**Follow the pause-work workflow** from `@./.claude/get-shit-done/workflows/pause-work.md`.
+**Follow the pause-work workflow** from `@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/pause-work.md`.
 
 The workflow handles all logic including:
 

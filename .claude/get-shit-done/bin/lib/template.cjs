@@ -8,6 +8,7 @@ const {
   normalizePhaseName,
   findPhaseInternal,
   generateSlugInternal,
+  normalizeMd,
   toPosixPath,
   output,
   error,
@@ -232,7 +233,7 @@ function cmdTemplateFill(cwd, templateType, options, raw) {
     return;
   }
 
-  fs.writeFileSync(outPath, fullContent, "utf-8");
+  fs.writeFileSync(outPath, normalizeMd(fullContent), "utf-8");
   const relPath = toPosixPath(path.relative(cwd, outPath));
   output({ created: true, path: relPath, template: templateType }, raw, relPath);
 }

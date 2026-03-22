@@ -16,10 +16,10 @@ Provides situational awareness before continuing work.
 </objective>
 
 <execution_context>
-@./.claude/get-shit-done/workflows/progress.md
+@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/progress.md
 </execution_context>
 
 <process>
-Execute the progress workflow from @./.claude/get-shit-done/workflows/progress.md end-to-end.
+Execute the progress workflow from @/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/progress.md end-to-end.
 Preserve all routing logic (Routes A through F) and edge case handling.
 </process>

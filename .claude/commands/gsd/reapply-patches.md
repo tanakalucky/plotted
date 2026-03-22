@@ -22,7 +22,7 @@ elif [ -d "$HOME/.opencode/gsd-local-patches" ]; then
 elif [ -d "$HOME/.gemini/gsd-local-patches" ]; then
   PATCHES_DIR="$HOME/.gemini/gsd-local-patches"
 else
-  PATCHES_DIR="./.claude/gsd-local-patches"
+  PATCHES_DIR="/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/gsd-local-patches"
 fi
 # Local install fallback — check all runtime directories
 if [ ! -d "$PATCHES_DIR" ]; then

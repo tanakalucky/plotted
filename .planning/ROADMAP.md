@@ -109,4 +109,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation        | 2/2            | Complete | 2026-03-21 |
 | 2. Controls          | 2/2            | Complete | 2026-03-21 |
 | 3. Maps + Plots      | 2/2            | Complete | 2026-03-22 |
-| 4. IndexedDB Cleanup | 1/1 | Complete   | 2026-03-22 |
+| 4. IndexedDB Cleanup | 1/1            | Complete | 2026-03-22 |

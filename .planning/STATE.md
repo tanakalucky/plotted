@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-maps-and-plotting-02-PLAN.md
-last_updated: "2026-03-22T00:45:32.275Z"
+stopped_at: "Checkpoint: Task 2 human-verify in 04-indexeddb-cleanup-01-PLAN.md"
+last_updated: "2026-03-22T01:14:21.021Z"
 progress:
-  total_phases: 3
-  completed_phases: 3
-  total_plans: 6
-  completed_plans: 6
+  total_phases: 4
+  completed_phases: 4
+  total_plans: 7
+  completed_plans: 7
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-22)
 
 **Core value:** キャラクターの位置をマップ上にプロットし、時系列で追跡できること
-**Current focus:** Phase 03 — maps-and-plotting
+**Current focus:** Phase 04 — indexeddb-cleanup
 
 ## Current Position
 
-Phase: 03
-Plan: Not started
+Phase: 04 (indexeddb-cleanup) — EXECUTING
+Plan: 1 of 1
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ _Updated after each plan completion_
 | Phase 02-controls P02 | 2 | 2 tasks | 11 files |
 | Phase 03-maps-and-plotting P01 | 25 | 2 tasks | 10 files |
 | Phase 03-maps-and-plotting P02 | 3 | 2 tasks | 9 files |
+| Phase 04-indexeddb-cleanup P01 | 2 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -80,6 +81,7 @@ Recent decisions affecting current work:
 - [Phase 03-maps-and-plotting]: letterbox coordinate math extracted to pure functions in lib/ for unit testability without browser
 - [Phase 03-maps-and-plotting]: DotOverlay uses ResizeObserver (not window resize) for targeted container dimension tracking
 - [Phase 03-maps-and-plotting]: PlotDot stopPropagation on click prevents container ADD_LOG firing on dot delete
+- [Phase 04-indexeddb-cleanup]: Inline async handler (no helper function) for IndexedDB cleanup per plan D-02 — Promise.all before RESET dispatch
 
 ### Pending Todos
 
@@ -92,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-22T00:42:02.048Z
-Stopped at: Completed 03-maps-and-plotting-02-PLAN.md
+Last session: 2026-03-22T01:14:21.019Z
+Stopped at: Checkpoint: Task 2 human-verify in 04-indexeddb-cleanup-01-PLAN.md
 Resume file: None

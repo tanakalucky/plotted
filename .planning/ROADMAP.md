@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Clean the codebase, establish state model, persistence layer, and noir design theme (completed 2026-03-21)
 - [x] **Phase 2: Controls** - Build all session-context controls: characters, day/time management, and data reset (completed 2026-03-21)
 - [x] **Phase 3: Maps and Plotting** - Build map management and the core click-to-plot interaction (completed 2026-03-22)
-- [ ] **Phase 4: Fix IndexedDB Cleanup on Reset** - Clean orphaned IndexedDB image blobs when user resets all data (Gap Closure)
+- [x] **Phase 4: Fix IndexedDB Cleanup on Reset** - Clean orphaned IndexedDB image blobs when user resets all data (Gap Closure) (completed 2026-03-22)
 
 ## Phase Details
 
@@ -97,7 +97,7 @@ Plans:
 
 Plans:
 
-- [ ] 04-01-PLAN.md — Wire deleteMapImage cleanup into reset onClick before dispatching RESET
+- [x] 04-01-PLAN.md — Wire deleteMapImage cleanup into reset onClick before dispatching RESET
 
 ## Progress
 
@@ -109,4 +109,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation        | 2/2            | Complete | 2026-03-21 |
 | 2. Controls          | 2/2            | Complete | 2026-03-21 |
 | 3. Maps + Plots      | 2/2            | Complete | 2026-03-22 |
-| 4. IndexedDB Cleanup | 0/1            | Pending  | —          |
+| 4. IndexedDB Cleanup | 1/1 | Complete   | 2026-03-22 |

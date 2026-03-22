@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-controls-02-PLAN.md
-last_updated: "2026-03-22T00:06:24.919Z"
+stopped_at: Completed 03-maps-and-plotting-01-PLAN.md
+last_updated: "2026-03-22T00:36:13.988Z"
 progress:
   total_phases: 3
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 6
+  completed_plans: 5
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-22)
 
 **Core value:** キャラクターの位置をマップ上にプロットし、時系列で追跡できること
-**Current focus:** Phase 02 — controls
+**Current focus:** Phase 03 — maps-and-plotting
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
+Phase: 03 (maps-and-plotting) — EXECUTING
+Plan: 2 of 2
 
 ## Performance Metrics
 
@@ -50,6 +50,7 @@ _Updated after each plan completion_
 | Phase 01-foundation P02 | 6 | 2 tasks | 8 files |
 | Phase 02-controls P01 | 12 | 2 tasks | 6 files |
 | Phase 02-controls P02 | 2 | 2 tasks | 11 files |
+| Phase 03-maps-and-plotting P01 | 25 | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -73,6 +74,8 @@ Recent decisions affecting current work:
 - [Phase 02-controls]: FineAdjustButtons use ADJUST_TIME deltas -2/-1/+1/+2 for 5-min step resolution (-10m/-5m/+5m/+10m)
 - [Phase 02-controls]: SLIDER_TICKS changed to 24 hourly indices with plain hour numbers (0-23) as labels
 - [Phase 02-controls]: @base-ui/react Slider requires single number value (not array) for single-thumb slider
+- [Phase 03-maps-and-plotting]: MAX_MAPS set to 4 per plan D-02 (overrides PROJECT.md 3-map constraint)
+- [Phase 03-maps-and-plotting]: MapCard manages objectUrl with useEffect cleanup; IndexedDB side-effects in components, not in pure reducer
 
 ### Pending Todos
 
@@ -85,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-21T23:50:03.276Z
-Stopped at: Completed 02-controls-02-PLAN.md
+Last session: 2026-03-22T00:36:13.964Z
+Stopped at: Completed 03-maps-and-plotting-01-PLAN.md
 Resume file: None

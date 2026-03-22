@@ -27,9 +27,9 @@
 
 ### Map
 
-- [ ] **MAP-01**: マップを最大4枚まで追加・削除でき、削除時に関連プロットデータもカスケード削除される
-- [ ] **MAP-02**: 各マップにローカルファイルから画像を読み込める。未設定時は「画像をアップロードしてください」と表示する
-- [ ] **MAP-03**: マップを最大2カラムで並列表示し、同時に見比べられる
+- [x] **MAP-01**: マップを最大4枚まで追加・削除でき、削除時に関連プロットデータもカスケード削除される
+- [x] **MAP-02**: 各マップにローカルファイルから画像を読み込める。未設定時は「画像をアップロードしてください」と表示する
+- [x] **MAP-03**: マップを最大2カラムで並列表示し、同時に見比べられる
 
 ### Plot
 
@@ -80,9 +80,9 @@
 | TIME-03     | Phase 2 | Complete |
 | TIME-04     | Phase 2 | Complete |
 | DATA-01     | Phase 2 | Complete |
-| MAP-01      | Phase 3 | Pending  |
-| MAP-02      | Phase 3 | Pending  |
-| MAP-03      | Phase 3 | Pending  |
+| MAP-01      | Phase 3 | Complete |
+| MAP-02      | Phase 3 | Complete |
+| MAP-03      | Phase 3 | Complete |
 | PLOT-01     | Phase 3 | Pending  |
 | PLOT-02     | Phase 3 | Pending  |
 | PLOT-03     | Phase 3 | Pending  |

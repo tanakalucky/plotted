@@ -76,6 +76,17 @@
   --ring: oklch(0.38 0.075 56); /* #7A4F2A */
 }
 
+@keyframes plotted-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

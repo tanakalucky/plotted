@@ -50,7 +50,7 @@ Plans:
 2. User can click a character chip to make it the active character
 3. Deleting a character removes it and all its associated plot data
 4. User can increment and decrement the active Day count (Day 1-7), and reducing days auto-deletes logs from removed days
-5. User can drag the time slider to any 10-minute increment between 00:00 and 23:50, and use fine-adjust buttons for ±5m/±10m steps
+5. User can drag the time slider to any 10-minute increment between 00:00 and 23:50, and use fine-adjust buttons for +/-5m/+/-10m steps
 6. User can reset all data via a confirmation dialog
 
 **Plans**: 2 plans
@@ -93,20 +93,20 @@ Plans:
 2. After reset, IndexedDB contains no orphaned image entries
 3. The "Full data reset" E2E flow completes end-to-end without storage leaks
 
-**Plans**: 0 plans
+**Plans**: 1 plan
 
 Plans:
 
-- (none yet — run `/gsd:plan-phase 4`)
+- [ ] 04-01-PLAN.md — Wire deleteMapImage cleanup into reset onClick before dispatching RESET
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3
+Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase                | Plans Complete | Status   | Completed  |
 | -------------------- | -------------- | -------- | ---------- |
 | 1. Foundation        | 2/2            | Complete | 2026-03-21 |
 | 2. Controls          | 2/2            | Complete | 2026-03-21 |
 | 3. Maps + Plots      | 2/2            | Complete | 2026-03-22 |
-| 4. IndexedDB Cleanup | 0/0            | Pending  | —          |
+| 4. IndexedDB Cleanup | 0/1            | Pending  | —          |

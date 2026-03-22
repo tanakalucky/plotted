@@ -349,3 +349,77 @@ describe("SET_MAP_IMAGE", () => {
     expect(result.maps[0].img).toBe("map-1");
   });
 });
+
+describe("ADD_LOG", () => {
+  it("空のlogs配列にログを追加するとid=1が割り当てられる", () => {
+    const result = reducer(initialState, {
+      type: "ADD_LOG",
+      payload: { char: "Alice", map: "map-1", day: 1, time: 0, x: 0.5, y: 0.5 },
+    });
+    expect(result.logs).toHaveLength(1);
+    expect(result.logs[0].id).toBe(1);
+    expect(result.logs[0].char).toBe("Alice");
+    expect(result.logs[0].map).toBe("map-1");
+    expect(result.logs[0].x).toBe(0.5);
+    expect(result.logs[0].y).toBe(0.5);
+  });
+
+  it("既存のlogsがある場合、最大id+1が新しいidになる", () => {
+    const stateWithLogs: State = {
+      ...initialState,
+      logs: [
+        { id: 1, char: "Alice", map: "map-1", day: 1, time: 0, x: 0.5, y: 0.5 },
+        { id: 3, char: "Bob", map: "map-1", day: 1, time: 0, x: 0.3, y: 0.3 },
+      ],
+    };
+    const result = reducer(stateWithLogs, {
+      type: "ADD_LOG",
+      payload: { char: "Charlie", map: "map-1", day: 1, time: 10, x: 0.7, y: 0.7 },
+    });
+    expect(result.logs).toHaveLength(3);
+    expect(result.logs[2].id).toBe(4); // max(1, 3) + 1 = 4
+  });
+
+  it("同じキャラクター・日時・マップに複数のログを追加できる", () => {
+    const result1 = reducer(initialState, {
+      type: "ADD_LOG",
+      payload: { char: "Alice", map: "map-1", day: 1, time: 0, x: 0.5, y: 0.5 },
+    });
+    const result2 = reducer(result1, {
+      type: "ADD_LOG",
+      payload: { char: "Alice", map: "map-1", day: 1, time: 0, x: 0.3, y: 0.3 },
+    });
+    expect(result2.logs).toHaveLength(2);
+    expect(result2.logs[1].id).toBe(2);
+  });
+});
+
+describe("DELETE_LOG", () => {
+  it("指定されたIDのログを削除する", () => {
+    const stateWithLogs: State = {
+      ...initialState,
+      logs: [
+        { id: 1, char: "Alice", map: "map-1", day: 1, time: 0, x: 0.5, y: 0.5 },
+        { id: 2, char: "Bob", map: "map-1", day: 1, time: 0, x: 0.3, y: 0.3 },
+      ],
+    };
+    const result = reducer(stateWithLogs, {
+      type: "DELETE_LOG",
+      payload: { id: 1 },
+    });
+    expect(result.logs).toHaveLength(1);
+    expect(result.logs[0].id).toBe(2);
+  });
+
+  it("存在しないIDを指定してもstateは変わらない", () => {
+    const stateWithLogs: State = {
+      ...initialState,
+      logs: [{ id: 1, char: "Alice", map: "map-1", day: 1, time: 0, x: 0.5, y: 0.5 }],
+    };
+    const result = reducer(stateWithLogs, {
+      type: "DELETE_LOG",
+      payload: { id: 999 },
+    });
+    expect(result.logs).toHaveLength(1);
+  });
+});

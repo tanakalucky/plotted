@@ -2,7 +2,7 @@ import { match } from "ts-pattern";
 
 import { TIME_MAX, TIME_MIN } from "@/shared/lib/time";
 
-import { type State, initialState } from "./state";
+import { type PlotLog, type State, initialState } from "./state";
 
 export const MAX_MAPS = 4;
 
@@ -18,7 +18,9 @@ export type Action =
   | { type: "ADD_MAP"; payload: { id: string; name: string } }
   | { type: "DELETE_MAP"; payload: { id: string } }
   | { type: "RENAME_MAP"; payload: { id: string; name: string } }
-  | { type: "SET_MAP_IMAGE"; payload: { id: string } };
+  | { type: "SET_MAP_IMAGE"; payload: { id: string } }
+  | { type: "ADD_LOG"; payload: Omit<PlotLog, "id"> }
+  | { type: "DELETE_LOG"; payload: { id: number } };
 
 export const reducer = (state: State, action: Action): State =>
   match(action)
@@ -81,5 +83,13 @@ export const reducer = (state: State, action: Action): State =>
     .with({ type: "SET_MAP_IMAGE" }, ({ payload }) => ({
       ...state,
       maps: state.maps.map((m) => (m.id === payload.id ? { ...m, img: payload.id } : m)),
+    }))
+    .with({ type: "ADD_LOG" }, ({ payload }) => {
+      const newId = state.logs.length > 0 ? Math.max(...state.logs.map((l) => l.id)) + 1 : 1;
+      return { ...state, logs: [...state.logs, { ...payload, id: newId }] };
+    })
+    .with({ type: "DELETE_LOG" }, ({ payload }) => ({
+      ...state,
+      logs: state.logs.filter((l) => l.id !== payload.id),
     }))
     .exhaustive();

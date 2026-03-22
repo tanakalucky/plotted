@@ -54,7 +54,7 @@ export const AddCharForm = ({ dispatch }: Props) => {
         type="color"
         value={color}
         onChange={(e) => setColor(e.target.value)}
-        className="h-8 w-8 cursor-pointer rounded border-border p-0 [&::-webkit-color-swatch]:rounded [&::-webkit-color-swatch-wrapper]:p-0"
+        className="size-8 cursor-pointer rounded border-border p-0 [&::-webkit-color-swatch]:rounded [&::-webkit-color-swatch-wrapper]:p-0"
         aria-label="カスタムカラー"
       />
       <Button size="sm" onClick={handleAdd} disabled={name.trim() === ""}>

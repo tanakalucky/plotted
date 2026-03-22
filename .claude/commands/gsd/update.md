@@ -20,11 +20,11 @@ Routes to the update workflow which handles:
   </objective>
 
 <execution_context>
-@./.claude/get-shit-done/workflows/update.md
+@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/update.md
 </execution_context>
 
 <process>
-**Follow the update workflow** from `@./.claude/get-shit-done/workflows/update.md`.
+**Follow the update workflow** from `@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/update.md`.
 
 The workflow handles all logic including:
 

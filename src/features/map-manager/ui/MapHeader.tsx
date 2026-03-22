@@ -82,7 +82,7 @@ export const MapHeader = ({ mapDef, logsExist, dispatch }: Props) => {
           />
           <Dialog.Portal>
             <Dialog.Backdrop className="fixed inset-0 bg-black/40" />
-            <Dialog.Popup className="fixed top-1/2 left-1/2 w-80 -translate-1/2  rounded-card border border-border bg-card p-6 shadow-lg">
+            <Dialog.Popup className="fixed top-1/2 left-1/2 w-80 -translate-1/2 rounded-card border border-border bg-card p-6 shadow-lg">
               <Dialog.Title className="text-base font-semibold text-foreground">
                 マップを削除
               </Dialog.Title>

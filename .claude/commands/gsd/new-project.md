@@ -31,14 +31,14 @@ Initialize a new project through unified flow: questioning → research (optiona
 </objective>
 
 <execution_context>
-@./.claude/get-shit-done/workflows/new-project.md
-@./.claude/get-shit-done/references/questioning.md
-@./.claude/get-shit-done/references/ui-brand.md
-@./.claude/get-shit-done/templates/project.md
-@./.claude/get-shit-done/templates/requirements.md
+@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/new-project.md
+@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/references/questioning.md
+@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/references/ui-brand.md
+@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/templates/project.md
+@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/templates/requirements.md
 </execution_context>
 
 <process>
-Execute the new-project workflow from @./.claude/get-shit-done/workflows/new-project.md end-to-end.
+Execute the new-project workflow from @/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/new-project.md end-to-end.
 Preserve all workflow gates (validation, approvals, commits, routing).
 </process>

@@ -26,7 +26,7 @@ export const AddMapButton = ({ dispatch, existingNames }: Props) => {
   return (
     <button
       type="button"
-      className="flex size-full min-h-[calc(--spacing(64)+(--spacing(10)))]  cursor-pointer flex-col items-center justify-center rounded-card border border-dashed border-border bg-muted/30 text-muted-foreground transition-all hover:brightness-95"
+      className="flex size-full min-h-[calc(--spacing(64)+(--spacing(10)))] cursor-pointer flex-col items-center justify-center rounded-card border border-dashed border-border bg-muted/30 text-muted-foreground transition-all hover:brightness-95"
       onClick={handleClick}
       aria-label="マップを追加"
     >

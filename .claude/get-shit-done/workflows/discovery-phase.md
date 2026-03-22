@@ -28,7 +28,7 @@ Claude's training data is 6-18 months stale. Always verify.
 2. **Official docs** - When Context7 lacks coverage
 3. **WebSearch LAST** - For comparisons and trends only
 
-See ./.claude/get-shit-done/templates/discovery.md `<discovery_protocol>` for full protocol.
+See /Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/templates/discovery.md `<discovery_protocol>` for full protocol.
 </source_hierarchy>
 
 <process>
@@ -104,7 +104,7 @@ For: Choosing between options, new external integration.
 
 5. **Cross-verify:** Any WebSearch finding → confirm with Context7/official docs.
 
-6. **Create DISCOVERY.md** using ./.claude/get-shit-done/templates/discovery.md structure:
+6. **Create DISCOVERY.md** using /Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/templates/discovery.md structure:
    - Summary with recommendation
    - Key findings per option
    - Code examples from Context7
@@ -122,7 +122,7 @@ For: Architectural decisions, novel problems, high-risk choices.
 
 **Process:**
 
-1. **Scope the discovery** using ./.claude/get-shit-done/templates/discovery.md:
+1. **Scope the discovery** using /Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/templates/discovery.md:
    - Define clear scope
    - Define include/exclude boundaries
    - List specific questions to answer
@@ -150,7 +150,7 @@ For: Architectural decisions, novel problems, high-risk choices.
    - Flag contradictions
 
 6. **Create comprehensive DISCOVERY.md:**
-   - Full structure from ./.claude/get-shit-done/templates/discovery.md
+   - Full structure from /Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/templates/discovery.md
    - Quality report with source attribution
    - Confidence by finding
    - If LOW confidence on any critical finding → add validation checkpoints
@@ -174,7 +174,7 @@ Ask: What do we need to learn before we can plan this phase?
   </step>
 
 <step name="create_discovery_scope">
-Use ./.claude/get-shit-done/templates/discovery.md.
+Use /Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/templates/discovery.md.
 
 Include:
 

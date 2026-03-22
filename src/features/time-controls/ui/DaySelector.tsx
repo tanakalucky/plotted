@@ -32,7 +32,7 @@ export const DaySelector = ({ days, activeDay, dispatch }: Props) => {
             key={day}
             type="button"
             className={cn(
-              "rounded-[var(--radius-button)] px-3 py-1 text-sm font-medium transition-colors",
+              "rounded-button px-3 py-1 text-sm font-medium transition-colors",
               day === activeDay
                 ? "bg-primary text-primary-foreground"
                 : "bg-surface text-ink-mid hover:bg-accent-pale",

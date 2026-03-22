@@ -138,6 +138,8 @@ _Last updated: [date] after [trigger]_
 <evolution>
 
 PROJECT.md evolves throughout the project lifecycle.
+These rules are embedded in the generated PROJECT.md (## Evolution section)
+and implemented by workflows/transition.md and workflows/complete-milestone.md.
 
 **After each phase transition:**
 

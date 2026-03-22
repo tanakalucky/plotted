@@ -15,10 +15,10 @@ Output ONLY the reference content below. Do NOT add:
   </objective>
 
 <execution_context>
-@./.claude/get-shit-done/workflows/help.md
+@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/help.md
 </execution_context>
 
 <process>
-Output the complete GSD command reference from @./.claude/get-shit-done/workflows/help.md.
+Output the complete GSD command reference from @/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/workflows/help.md.
 Display the reference content directly — no additions or modifications.
 </process>

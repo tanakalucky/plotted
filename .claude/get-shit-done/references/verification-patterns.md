@@ -642,7 +642,7 @@ Some things can't be verified programmatically. Flag these for human testing:
 
 For automation-first checkpoint patterns, server lifecycle management, CLI installation handling, and error recovery protocols, see:
 
-**@./.claude/get-shit-done/references/checkpoints.md** → `<automation_reference>` section
+**@/Users/tanakalucky/Work/10.programming/20.private_develop/10.sample-project/plotted/.claude/get-shit-done/references/checkpoints.md** → `<automation_reference>` section
 
 Key principles:
 

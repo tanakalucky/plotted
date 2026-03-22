@@ -66,26 +66,26 @@
 
 ## Traceability
 
-| Requirement | Phase   | Status   |
-| ----------- | ------- | -------- |
-| SETUP-01    | Phase 1 | Complete |
-| SETUP-02    | Phase 1 | Complete |
-| SETUP-03    | Phase 1 | Complete |
-| SETUP-04    | Phase 1 | Complete |
-| CHAR-01     | Phase 2 | Complete |
-| CHAR-02     | Phase 2 | Complete |
-| CHAR-03     | Phase 2 | Complete |
-| TIME-01     | Phase 2 | Complete |
-| TIME-02     | Phase 2 | Complete |
-| TIME-03     | Phase 2 | Complete |
-| TIME-04     | Phase 2 | Complete |
-| DATA-01     | Phase 2 | Complete |
-| MAP-01      | Phase 3 | Complete |
-| MAP-02      | Phase 3 | Complete |
-| MAP-03      | Phase 3 | Complete |
-| PLOT-01     | Phase 3 | Complete |
-| PLOT-02     | Phase 3 | Complete |
-| PLOT-03     | Phase 3 | Complete |
+| Requirement | Phase            | Status                         |
+| ----------- | ---------------- | ------------------------------ |
+| SETUP-01    | Phase 1          | Complete                       |
+| SETUP-02    | Phase 1          | Complete                       |
+| SETUP-03    | Phase 1, Phase 4 | Complete (gap closure pending) |
+| SETUP-04    | Phase 1          | Complete                       |
+| CHAR-01     | Phase 2          | Complete                       |
+| CHAR-02     | Phase 2          | Complete                       |
+| CHAR-03     | Phase 2          | Complete                       |
+| TIME-01     | Phase 2          | Complete                       |
+| TIME-02     | Phase 2          | Complete                       |
+| TIME-03     | Phase 2          | Complete                       |
+| TIME-04     | Phase 2          | Complete                       |
+| DATA-01     | Phase 2, Phase 4 | Complete (gap closure pending) |
+| MAP-01      | Phase 3          | Complete                       |
+| MAP-02      | Phase 3          | Complete                       |
+| MAP-03      | Phase 3          | Complete                       |
+| PLOT-01     | Phase 3          | Complete                       |
+| PLOT-02     | Phase 3          | Complete                       |
+| PLOT-03     | Phase 3          | Complete                       |
 
 **Coverage:**
 

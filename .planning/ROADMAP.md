@@ -16,6 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Clean the codebase, establish state model, persistence layer, and noir design theme (completed 2026-03-21)
 - [x] **Phase 2: Controls** - Build all session-context controls: characters, day/time management, and data reset (completed 2026-03-21)
 - [x] **Phase 3: Maps and Plotting** - Build map management and the core click-to-plot interaction (completed 2026-03-22)
+- [ ] **Phase 4: Fix IndexedDB Cleanup on Reset** - Clean orphaned IndexedDB image blobs when user resets all data (Gap Closure)
 
 ## Phase Details
 
@@ -80,13 +81,32 @@ Plans:
 - [x] 03-01-PLAN.md — Map management: reducer MAP actions (add/delete/rename/set-image), map grid layout, card UI with image upload and placeholder
 - [x] 03-02-PLAN.md — Click-to-plot: LOG reducer actions, letterbox coordinate math, SVG dot overlay with character initials, hover-delete, ripple feedback
 
+### Phase 4: Fix IndexedDB Cleanup on Reset
+
+**Goal**: RESET action dispatches IndexedDB image cleanup before clearing state, eliminating orphaned blobs and completing the full data reset flow
+**Depends on**: Phase 3
+**Requirements**: DATA-01, SETUP-03
+**Gap Closure**: Closes gaps from v1.0 milestone audit (INT-01, Flow: Full data reset)
+**Success Criteria** (what must be TRUE):
+
+1. Dispatching RESET deletes all IndexedDB image blobs for existing maps before resetting state
+2. After reset, IndexedDB contains no orphaned image entries
+3. The "Full data reset" E2E flow completes end-to-end without storage leaks
+
+**Plans**: 0 plans
+
+Plans:
+
+- (none yet — run `/gsd:plan-phase 4`)
+
 ## Progress
 
 **Execution Order:**
 Phases execute in numeric order: 1 → 2 → 3
 
-| Phase           | Plans Complete | Status   | Completed  |
-| --------------- | -------------- | -------- | ---------- |
-| 1. Foundation   | 2/2            | Complete | 2026-03-21 |
-| 2. Controls     | 2/2            | Complete | 2026-03-21 |
-| 3. Maps + Plots | 2/2            | Complete | 2026-03-22 |
+| Phase                | Plans Complete | Status   | Completed  |
+| -------------------- | -------------- | -------- | ---------- |
+| 1. Foundation        | 2/2            | Complete | 2026-03-21 |
+| 2. Controls          | 2/2            | Complete | 2026-03-21 |
+| 3. Maps + Plots      | 2/2            | Complete | 2026-03-22 |
+| 4. IndexedDB Cleanup | 0/0            | Pending  | —          |

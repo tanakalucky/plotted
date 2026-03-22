@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Clean the codebase, establish state model, persistence layer, and noir design theme (completed 2026-03-21)
 - [x] **Phase 2: Controls** - Build all session-context controls: characters, day/time management, and data reset (completed 2026-03-21)
-- [ ] **Phase 3: Maps and Plotting** - Build map management and the core click-to-plot interaction
+- [x] **Phase 3: Maps and Plotting** - Build map management and the core click-to-plot interaction (completed 2026-03-22)
 
 ## Phase Details
 
@@ -78,7 +78,7 @@ Plans:
 Plans:
 
 - [x] 03-01-PLAN.md — Map management: reducer MAP actions (add/delete/rename/set-image), map grid layout, card UI with image upload and placeholder
-- [ ] 03-02-PLAN.md — Click-to-plot: LOG reducer actions, letterbox coordinate math, SVG dot overlay with character initials, hover-delete, ripple feedback
+- [x] 03-02-PLAN.md — Click-to-plot: LOG reducer actions, letterbox coordinate math, SVG dot overlay with character initials, hover-delete, ripple feedback
 
 ## Progress
 
@@ -89,4 +89,4 @@ Phases execute in numeric order: 1 → 2 → 3
 | --------------- | -------------- | ----------- | ---------- |
 | 1. Foundation   | 2/2            | Complete    | 2026-03-21 |
 | 2. Controls     | 2/2            | Complete    | 2026-03-21 |
-| 3. Maps + Plots | 1/2 | In Progress|  |
+| 3. Maps + Plots | 2/2 | Complete   | 2026-03-22 |

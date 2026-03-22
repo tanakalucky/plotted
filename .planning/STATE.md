@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-maps-and-plotting-01-PLAN.md
-last_updated: "2026-03-22T00:36:13.988Z"
+stopped_at: Completed 03-maps-and-plotting-02-PLAN.md
+last_updated: "2026-03-22T00:42:02.050Z"
 progress:
   total_phases: 3
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 6
-  completed_plans: 5
+  completed_plans: 6
 ---
 
 # Project State
@@ -51,6 +51,7 @@ _Updated after each plan completion_
 | Phase 02-controls P01 | 12 | 2 tasks | 6 files |
 | Phase 02-controls P02 | 2 | 2 tasks | 11 files |
 | Phase 03-maps-and-plotting P01 | 25 | 2 tasks | 10 files |
+| Phase 03-maps-and-plotting P02 | 3 | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - [Phase 02-controls]: @base-ui/react Slider requires single number value (not array) for single-thumb slider
 - [Phase 03-maps-and-plotting]: MAX_MAPS set to 4 per plan D-02 (overrides PROJECT.md 3-map constraint)
 - [Phase 03-maps-and-plotting]: MapCard manages objectUrl with useEffect cleanup; IndexedDB side-effects in components, not in pure reducer
+- [Phase 03-maps-and-plotting]: letterbox coordinate math extracted to pure functions in lib/ for unit testability without browser
+- [Phase 03-maps-and-plotting]: DotOverlay uses ResizeObserver (not window resize) for targeted container dimension tracking
+- [Phase 03-maps-and-plotting]: PlotDot stopPropagation on click prevents container ADD_LOG firing on dot delete
 
 ### Pending Todos
 
@@ -88,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-22T00:36:13.964Z
-Stopped at: Completed 03-maps-and-plotting-01-PLAN.md
+Last session: 2026-03-22T00:42:02.048Z
+Stopped at: Completed 03-maps-and-plotting-02-PLAN.md
 Resume file: None

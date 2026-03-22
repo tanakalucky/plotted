@@ -33,9 +33,9 @@
 
 ### Plot
 
-- [ ] **PLOT-01**: 選択中のキャラクター・Day・時刻で、マップ上をクリックして位置を記録できる（比率座標 0.0〜1.0）
-- [ ] **PLOT-02**: 選択中のDay・時刻に記録された全キャラクターのドットをマップ上に常時表示する
-- [ ] **PLOT-03**: ドットをクリックで即削除でき、ホバー時に削除インジケーターを表示する
+- [x] **PLOT-01**: 選択中のキャラクター・Day・時刻で、マップ上をクリックして位置を記録できる（比率座標 0.0〜1.0）
+- [x] **PLOT-02**: 選択中のDay・時刻に記録された全キャラクターのドットをマップ上に常時表示する
+- [x] **PLOT-03**: ドットをクリックで即削除でき、ホバー時に削除インジケーターを表示する
 
 ### Data
 
@@ -83,9 +83,9 @@
 | MAP-01      | Phase 3 | Complete |
 | MAP-02      | Phase 3 | Complete |
 | MAP-03      | Phase 3 | Complete |
-| PLOT-01     | Phase 3 | Pending  |
-| PLOT-02     | Phase 3 | Pending  |
-| PLOT-03     | Phase 3 | Pending  |
+| PLOT-01     | Phase 3 | Complete |
+| PLOT-02     | Phase 3 | Complete |
+| PLOT-03     | Phase 3 | Complete |
 
 **Coverage:**
 

@@ -34,18 +34,20 @@ export const PlottedApp = () => {
               }
             />
             <Collapsible.Panel>
-              <div className="mt-3 space-y-3">
+              <div className="mt-3 flex gap-6">
                 {/* Character section */}
-                <div className="flex items-start gap-4">
+                <div className="shrink-0">
                   <CharRoster
                     chars={state.chars}
                     activeChar={state.activeChar}
                     dispatch={dispatch}
                   />
-                  <AddCharForm dispatch={dispatch} />
+                  <div className="mt-2">
+                    <AddCharForm dispatch={dispatch} />
+                  </div>
                 </div>
                 {/* Time section */}
-                <div className="space-y-2">
+                <div className="min-w-0 flex-1 space-y-2">
                   <DaySelector days={state.days} activeDay={state.activeDay} dispatch={dispatch} />
                   <TimeSlider currentTime={state.currentTime} dispatch={dispatch} />
                   <FineAdjustButtons dispatch={dispatch} />

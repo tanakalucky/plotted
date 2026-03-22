@@ -24,8 +24,8 @@
 - [x] キャラクター管理（追加・選択・削除、名前最大10文字+カラー指定） → Validated in Phase 02: Controls
 - [x] Day管理（Day1〜Day7、増減ボタン、Day削減時の関連ログ自動削除） → Validated in Phase 02: Controls
 - [x] 時刻管理（5分単位スライダー 00:00〜23:55、微調整ボタン±5m/10m/30m/1h） → Validated in Phase 02: Controls
-- [ ] マップ管理（最大3枚、2カラム並列表示、画像読み込み、削除時の関連プロット削除）
-- [ ] プロット機能（マップクリックで位置記録、ドット表示、クリック削除）
+- [x] マップ管理（最大4枚、2カラム並列表示、画像読み込み、削除時の関連プロット削除） → Validated in Phase 03: Maps & Plotting
+- [x] プロット機能（マップクリックで位置記録、ドット表示、クリック削除） → Validated in Phase 03: Maps & Plotting
 - [x] クラシック・ノワール デザインテーマの適用 → Validated
 - [x] 既存Todoアプリ/Convexコードの削除 → Validated
 - [x] データ永続化（localStorage自動保存・自動復元・リセット） → Validated
@@ -62,9 +62,9 @@
 | Decision                     | Rationale                                        | Outcome    |
 | ---------------------------- | ------------------------------------------------ | ---------- |
 | localStorage for persistence | バックエンド不要、即座に動作、デプロイがシンプル | ✓ Phase 01 |
-| 座標を比率で記録             | マップサイズ変更に耐える設計                     | — Pending  |
+| 座標を比率で記録             | マップサイズ変更に耐える設計                     | ✓ Phase 03 |
 | 既存Todo/Convexコードを削除  | 完全に異なるアプリのため再利用不可               | ✓ Phase 01 |
-| マップ最大3枚・2カラム表示   | 同時比較のため並列表示、画面サイズの制約         | — Pending  |
+| マップ最大4枚・2カラム表示   | 同時比較のため並列表示、画面サイズの制約         | ✓ Phase 03 |
 
 ## Design
 
@@ -138,4 +138,4 @@ This document evolves at phase transitions and milestone boundaries.
 
 ---
 
-_Last updated: 2026-03-22 after Phase 02: Controls completion_
+_Last updated: 2026-03-22 after Phase 03: Maps & Plotting completion_

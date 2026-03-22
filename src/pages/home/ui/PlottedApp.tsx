@@ -17,7 +17,7 @@ export const PlottedApp = () => {
       {/* Toolbar */}
       <div className="border-b border-border-gold bg-card p-3">
         <div className="flex items-start gap-2">
-          <Collapsible.Root open={isOpen} onOpenChange={setIsOpen}>
+          <Collapsible.Root open={isOpen} onOpenChange={setIsOpen} className="min-w-0 flex-1">
             <Collapsible.Trigger
               render={
                 <Button
@@ -34,24 +34,20 @@ export const PlottedApp = () => {
               }
             />
             <Collapsible.Panel>
-              <div className="mt-3 flex gap-6">
+              <div className="mt-3 space-y-3">
                 {/* Character section */}
-                <div className="shrink-0">
+                <div className="flex items-start gap-4">
                   <CharRoster
                     chars={state.chars}
                     activeChar={state.activeChar}
                     dispatch={dispatch}
                   />
-                  <div className="mt-2">
-                    <AddCharForm dispatch={dispatch} />
-                  </div>
+                  <AddCharForm dispatch={dispatch} />
                 </div>
                 {/* Time section */}
-                <div className="min-w-0 flex-1 space-y-2">
+                <div className="space-y-2">
                   <DaySelector days={state.days} activeDay={state.activeDay} dispatch={dispatch} />
-                  <div className="flex items-start gap-4">
-                    <TimeSlider currentTime={state.currentTime} dispatch={dispatch} />
-                  </div>
+                  <TimeSlider currentTime={state.currentTime} dispatch={dispatch} />
                   <FineAdjustButtons dispatch={dispatch} />
                 </div>
               </div>

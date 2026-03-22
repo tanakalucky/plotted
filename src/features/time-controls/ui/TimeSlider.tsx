@@ -11,8 +11,8 @@ interface Props {
 
 export const TimeSlider = ({ currentTime, dispatch }: Props) => {
   return (
-    <div className="flex-1 space-y-0">
-      <div className="flex items-center gap-3">
+    <div className="w-full space-y-0">
+      <div className="flex w-full items-center gap-3">
         <span className="min-w-[4ch] font-serif text-lg tracking-wider text-ink-dark tabular-nums">
           {timeIndexToLabel(currentTime)}
         </span>

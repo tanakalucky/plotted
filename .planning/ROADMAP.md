@@ -66,19 +66,19 @@ Plans:
 **Requirements**: MAP-01, MAP-02, MAP-03, PLOT-01, PLOT-02, PLOT-03
 **Success Criteria** (what must be TRUE):
 
-1. User can add up to 3 maps by uploading local image files; maps display side-by-side in a 2-column layout
+1. User can add up to 4 maps by uploading local image files; maps display side-by-side in a 2-column layout
 2. Deleting a map removes it and all associated plot data
 3. An unloaded map slot shows "画像をアップロードしてください" placeholder text
 4. With an active character, day, and time selected, clicking on a map records a colored dot at that position
 5. All dots for the current day and time are visible on their respective maps, color-coded by character
 6. Clicking an existing dot (with hover delete indicator) removes it immediately
 
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 
-- [ ] 03-01: Map management (add, delete with cascade, 2-column layout, image upload and placeholder)
-- [ ] 03-02: Click-to-plot and dot rendering (coordinate normalization, SVG overlay, click-to-delete)
+- [ ] 03-01-PLAN.md — Map management: reducer MAP actions (add/delete/rename/set-image), map grid layout, card UI with image upload and placeholder
+- [ ] 03-02-PLAN.md — Click-to-plot: LOG reducer actions, letterbox coordinate math, SVG dot overlay with character initials, hover-delete, ripple feedback
 
 ## Progress
 

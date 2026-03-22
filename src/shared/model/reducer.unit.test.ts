@@ -246,3 +246,106 @@ describe("RESET", () => {
     expect(result).toEqual(initialState);
   });
 });
+
+describe("ADD_MAP", () => {
+  it("マップをmaps配列に追加する", () => {
+    const result = reducer(initialState, {
+      type: "ADD_MAP",
+      payload: { id: "map-1", name: "マップ1" },
+    });
+    expect(result.maps).toEqual([{ id: "map-1", name: "マップ1", img: null }]);
+  });
+
+  it("4枚以上のマップは追加しない（stateを変更しない）", () => {
+    const stateWith4Maps: State = {
+      ...initialState,
+      maps: [
+        { id: "map-1", name: "マップ1", img: null },
+        { id: "map-2", name: "マップ2", img: null },
+        { id: "map-3", name: "マップ3", img: null },
+        { id: "map-4", name: "マップ4", img: null },
+      ],
+    };
+    const result = reducer(stateWith4Maps, {
+      type: "ADD_MAP",
+      payload: { id: "map-5", name: "マップ5" },
+    });
+    expect(result).toBe(stateWith4Maps);
+  });
+});
+
+describe("DELETE_MAP", () => {
+  it("指定されたIDのマップをmapsから削除する", () => {
+    const stateWithMap: State = {
+      ...initialState,
+      maps: [{ id: "map-1", name: "マップ1", img: null }],
+    };
+    const result = reducer(stateWithMap, {
+      type: "DELETE_MAP",
+      payload: { id: "map-1" },
+    });
+    expect(result.maps).toEqual([]);
+  });
+
+  it("マップ削除時に関連するログをカスケード削除する", () => {
+    const stateWithMapAndLogs: State = {
+      ...initialState,
+      maps: [
+        { id: "map-1", name: "マップ1", img: null },
+        { id: "map-2", name: "マップ2", img: null },
+      ],
+      logs: [
+        { id: 1, char: "Alice", map: "map-1", day: 1, time: 0, x: 0.5, y: 0.5 },
+        { id: 2, char: "Bob", map: "map-1", day: 1, time: 0, x: 0.3, y: 0.3 },
+        { id: 3, char: "Alice", map: "map-2", day: 1, time: 0, x: 0.1, y: 0.1 },
+      ],
+    };
+    const result = reducer(stateWithMapAndLogs, {
+      type: "DELETE_MAP",
+      payload: { id: "map-1" },
+    });
+    expect(result.maps).toHaveLength(1);
+    expect(result.logs).toHaveLength(1);
+    expect(result.logs[0].map).toBe("map-2");
+  });
+
+  it("存在しないIDを指定した場合、stateを変更しない", () => {
+    const stateWithMap: State = {
+      ...initialState,
+      maps: [{ id: "map-1", name: "マップ1", img: null }],
+    };
+    const result = reducer(stateWithMap, {
+      type: "DELETE_MAP",
+      payload: { id: "map-999" },
+    });
+    expect(result.maps).toHaveLength(1);
+  });
+});
+
+describe("RENAME_MAP", () => {
+  it("指定されたIDのマップ名を更新する", () => {
+    const stateWithMap: State = {
+      ...initialState,
+      maps: [{ id: "map-1", name: "マップ1", img: null }],
+    };
+    const result = reducer(stateWithMap, {
+      type: "RENAME_MAP",
+      payload: { id: "map-1", name: "新しいマップ名" },
+    });
+    expect(result.maps[0].name).toBe("新しいマップ名");
+  });
+});
+
+describe("SET_MAP_IMAGE", () => {
+  it("指定されたIDのマップのimgをpayload.idに設定する", () => {
+    const stateWithMap: State = {
+      ...initialState,
+      maps: [{ id: "map-1", name: "マップ1", img: null }],
+    };
+    const result = reducer(stateWithMap, {
+      type: "SET_MAP_IMAGE",
+      payload: { id: "map-1" },
+    });
+    expect(result.maps[0].img).toBe("map-1");
+  });
+});

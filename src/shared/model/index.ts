@@ -6,6 +6,6 @@ export {
   initialState,
   isValidState,
 } from "./state";
-export { type Action, reducer } from "./reducer";
+export { type Action, reducer, MAX_MAPS } from "./reducer";
 export { useAppState } from "./use-app-state";
 export { saveMapImage, loadMapImage, deleteMapImage } from "./use-map-images";

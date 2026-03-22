@@ -4,6 +4,8 @@ import { TIME_MAX, TIME_MIN } from "@/shared/lib/time";
 
 import { type State, initialState } from "./state";
 
+export const MAX_MAPS = 4;
+
 export type Action =
   | { type: "RESET" }
   | { type: "ADD_CHAR"; payload: { name: string; color: string } }
@@ -12,7 +14,11 @@ export type Action =
   | { type: "SET_DAYS"; payload: { days: number } }
   | { type: "SET_ACTIVE_DAY"; payload: { day: number } }
   | { type: "SET_TIME"; payload: { time: number } }
-  | { type: "ADJUST_TIME"; payload: { delta: number } };
+  | { type: "ADJUST_TIME"; payload: { delta: number } }
+  | { type: "ADD_MAP"; payload: { id: string; name: string } }
+  | { type: "DELETE_MAP"; payload: { id: string } }
+  | { type: "RENAME_MAP"; payload: { id: string; name: string } }
+  | { type: "SET_MAP_IMAGE"; payload: { id: string } };
 
 export const reducer = (state: State, action: Action): State =>
   match(action)
@@ -55,5 +61,25 @@ export const reducer = (state: State, action: Action): State =>
     .with({ type: "ADJUST_TIME" }, ({ payload }) => ({
       ...state,
       currentTime: Math.max(TIME_MIN, Math.min(TIME_MAX, state.currentTime + payload.delta)),
+    }))
+    .with({ type: "ADD_MAP" }, ({ payload }) => {
+      if (state.maps.length >= MAX_MAPS) return state;
+      return {
+        ...state,
+        maps: [...state.maps, { id: payload.id, name: payload.name, img: null }],
+      };
+    })
+    .with({ type: "DELETE_MAP" }, ({ payload }) => ({
+      ...state,
+      maps: state.maps.filter((m) => m.id !== payload.id),
+      logs: state.logs.filter((log) => log.map !== payload.id),
+    }))
+    .with({ type: "RENAME_MAP" }, ({ payload }) => ({
+      ...state,
+      maps: state.maps.map((m) => (m.id === payload.id ? { ...m, name: payload.name } : m)),
+    }))
+    .with({ type: "SET_MAP_IMAGE" }, ({ payload }) => ({
+      ...state,
+      maps: state.maps.map((m) => (m.id === payload.id ? { ...m, img: payload.id } : m)),
     }))
     .exhaustive();

@@ -4,6 +4,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { useState } from "react";
 
 import { AddCharForm, CharRoster } from "@/features/character-manager";
+import { MapGrid } from "@/features/map-manager";
 import { DaySelector, FineAdjustButtons, TimeSlider } from "@/features/time-controls";
 import { useAppState } from "@/shared/model";
 import { Button } from "@/shared/ui/Button";
@@ -102,8 +103,10 @@ export const PlottedApp = () => {
         </div>
       </div>
 
-      {/* Map area — Phase 3 */}
-      <div className="p-4" />
+      {/* Map area */}
+      <div className="p-4">
+        <MapGrid maps={state.maps} state={state} dispatch={dispatch} />
+      </div>
     </div>
   );
 };

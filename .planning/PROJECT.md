@@ -21,9 +21,9 @@
 
 ### Active
 
-- [ ] キャラクター管理（追加・選択・削除、名前最大10文字+カラー指定）
-- [ ] Day管理（Day1〜Day7、増減ボタン、Day削減時の関連ログ自動削除）
-- [ ] 時刻管理（10分単位スライダー 00:00〜23:50、微調整ボタン）
+- [x] キャラクター管理（追加・選択・削除、名前最大10文字+カラー指定） → Validated in Phase 02: Controls
+- [x] Day管理（Day1〜Day7、増減ボタン、Day削減時の関連ログ自動削除） → Validated in Phase 02: Controls
+- [x] 時刻管理（5分単位スライダー 00:00〜23:55、微調整ボタン±5m/10m/30m/1h） → Validated in Phase 02: Controls
 - [ ] マップ管理（最大3枚、2カラム並列表示、画像読み込み、削除時の関連プロット削除）
 - [ ] プロット機能（マップクリックで位置記録、ドット表示、クリック削除）
 - [x] クラシック・ノワール デザインテーマの適用 → Validated
@@ -55,7 +55,7 @@
 - **Package Manager**: bun — npm/yarn/npx不使用
 - **Maps**: 最大3枚 — UI表示領域の制約
 - **Days**: Day1〜Day7 — マダミスの一般的なゲーム期間
-- **Time Resolution**: 10分単位 — プレイに十分な粒度
+- **Time Resolution**: 5分単位 — プレイに十分な粒度（Phase 02で10分→5分に変更）
 
 ## Key Decisions
 
@@ -106,14 +106,14 @@ type State = {
     char: string;
     map: string;
     day: number;
-    time: number; // 0〜143（10分単位のインデックス）
+    time: number; // 0〜287（5分単位のインデックス）
     x: number; // 0.0〜1.0
     y: number; // 0.0〜1.0
   }[];
   days: number; // 1〜7
   activeChar: string | null;
   activeDay: number;
-  currentTime: number; // 0〜143
+  currentTime: number; // 0〜287（5分単位のインデックス）
 };
 ```
 
@@ -138,4 +138,4 @@ This document evolves at phase transitions and milestone boundaries.
 
 ---
 
-_Last updated: 2026-03-22 after Phase 01: Foundation completion_
+_Last updated: 2026-03-22 after Phase 02: Controls completion_

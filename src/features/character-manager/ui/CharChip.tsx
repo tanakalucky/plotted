@@ -17,8 +17,8 @@ export const CharChip = ({ char, isActive, onSelect, onDelete }: Props) => {
       aria-pressed={isActive}
       tabIndex={0}
       className={cn(
-        "group relative inline-flex cursor-pointer items-center rounded-[var(--radius-chip)] px-3 py-1 text-sm font-medium text-white transition-all select-none",
-        isActive && "scale-110 shadow-md",
+        "group relative inline-flex cursor-pointer items-center rounded-chip px-3 py-1 text-sm font-medium text-white transition-all select-none",
+        isActive && "scale-105 shadow-md ring-2 ring-primary ring-offset-2 ring-offset-background",
       )}
       style={{ backgroundColor: char.color }}
       onClick={onSelect}

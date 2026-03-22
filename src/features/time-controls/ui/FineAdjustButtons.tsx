@@ -13,6 +13,20 @@ export const FineAdjustButtons = ({ dispatch }: Props) => {
       <Button
         variant="outline"
         size="xs"
+        onClick={() => dispatch({ type: "ADJUST_TIME", payload: { delta: -12 } })}
+      >
+        -1h
+      </Button>
+      <Button
+        variant="outline"
+        size="xs"
+        onClick={() => dispatch({ type: "ADJUST_TIME", payload: { delta: -6 } })}
+      >
+        -30m
+      </Button>
+      <Button
+        variant="outline"
+        size="xs"
         onClick={() => dispatch({ type: "ADJUST_TIME", payload: { delta: -2 } })}
       >
         -10m
@@ -37,6 +51,20 @@ export const FineAdjustButtons = ({ dispatch }: Props) => {
         onClick={() => dispatch({ type: "ADJUST_TIME", payload: { delta: 2 } })}
       >
         +10m
+      </Button>
+      <Button
+        variant="outline"
+        size="xs"
+        onClick={() => dispatch({ type: "ADJUST_TIME", payload: { delta: 6 } })}
+      >
+        +30m
+      </Button>
+      <Button
+        variant="outline"
+        size="xs"
+        onClick={() => dispatch({ type: "ADJUST_TIME", payload: { delta: 12 } })}
+      >
+        +1h
       </Button>
     </div>
   );

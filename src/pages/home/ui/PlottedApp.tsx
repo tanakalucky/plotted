@@ -34,9 +34,9 @@ export const PlottedApp = () => {
               }
             />
             <Collapsible.Panel>
-              <div className="mt-3 space-y-3">
+              <div className="mt-3 flex gap-6">
                 {/* Character section */}
-                <div>
+                <div className="shrink-0">
                   <CharRoster
                     chars={state.chars}
                     activeChar={state.activeChar}
@@ -47,7 +47,7 @@ export const PlottedApp = () => {
                   </div>
                 </div>
                 {/* Time section */}
-                <div className="space-y-2">
+                <div className="min-w-0 flex-1 space-y-2">
                   <DaySelector days={state.days} activeDay={state.activeDay} dispatch={dispatch} />
                   <div className="flex items-start gap-4">
                     <TimeSlider currentTime={state.currentTime} dispatch={dispatch} />
@@ -70,7 +70,7 @@ export const PlottedApp = () => {
               />
               <Dialog.Portal>
                 <Dialog.Backdrop className="fixed inset-0 bg-black/40" />
-                <Dialog.Popup className="fixed top-1/2 left-1/2 w-80 -translate-x-1/2 -translate-y-1/2 rounded-[var(--radius-card)] border border-border bg-card p-6 shadow-lg">
+                <Dialog.Popup className="fixed top-1/2 left-1/2 w-80 -translate-1/2 rounded-card border border-border bg-card p-6 shadow-lg">
                   <Dialog.Title className="text-base font-semibold text-foreground">
                     データをリセット
                   </Dialog.Title>
